@@ -4,11 +4,12 @@ services:
     container_name: cafeorigen
     restart: always
     networks:
-      - toolsnetwork
+      - cafeorigen
     expose:
       - 80
     labels:
       - traefik.enable=true
+      - traefik.docker.network=cafeorigen
       - traefik.http.routers.cafeorigen.rule=Host(`origencafe.gnssys.com`)
       - traefik.http.routers.cafeorigen.tls=true
       - traefik.http.routers.cafeorigen.entrypoints=web,websecure
@@ -25,6 +26,6 @@ services:
       - traefik.http.services.cafeorigen.loadbalancer.server.port=80
 
 networks:
-  toolsnetwork:
-    external: true
-    name: toolsnetwork
+  cafeorigen:
+    name: cafeorigen
+    driver: bridge
