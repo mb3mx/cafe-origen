@@ -462,7 +462,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   .bag{width:min(260px,66vw);animation:none}
   .layer{will-change:auto}
   .seal{width:96px;height:96px;right:-30px}
-  .hero-emblem{display:block;width:150px;height:auto;margin:0 auto 22px;filter:drop-shadow(0 0 24px rgba(212,175,98,.3))}
+  .hero-emblem{display:block;width:170px;height:auto;margin:0 auto 22px;filter:drop-shadow(0 0 24px rgba(212,175,98,.3))}
   .hero::after{background:linear-gradient(180deg,rgba(12,23,18,.62) 0%,rgba(12,23,18,.5) 55%,rgba(12,23,18,.2) 100%)}
   .beans{opacity:.3}
   .hero h1{font-size:clamp(2.75rem,12.5vw,3.8rem);margin:14px 0 16px}
@@ -581,13 +581,25 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 }
 /* Pantallas bajas (iPhone SE y similares): la portada sigue cabiendo en una sola pantalla */
 @media (max-width:960px) and (max-height:740px){
-  .hero{padding-top:84px;padding-bottom:28px}
-  .hero-grid>div:first-child{min-height:calc(100svh - 84px - 28px)}
-  .hero-emblem{width:100px;margin-bottom:16px}
+  .hero{padding-top:80px;padding-bottom:22px}
+  .hero-grid>div:first-child{min-height:calc(100svh - 80px - 22px)}
+  .hero-emblem{width:144px;margin-bottom:12px}
   .hero h1{font-size:2.6rem;margin:10px 0 12px}
   .hero .lead{font-size:.92rem;line-height:1.55;margin-bottom:20px}
   .hero-ctas .btn{padding:14px}
   .hero-badges{display:none}
+}
+/* Pantallas muy bajas (iPhone SE en Safari con sus barras) */
+@media (max-width:960px) and (max-height:600px){
+  .hero{padding-top:76px;padding-bottom:20px}
+  .hero-grid>div:first-child{min-height:calc(100svh - 76px - 20px)}
+  .hero-emblem{width:110px;margin-bottom:10px}
+  .hero h1{font-size:2.3rem;margin:8px 0 10px}
+  .hero .lead{font-size:.86rem;line-height:1.5;margin-bottom:14px}
+  .hero-price{margin:-4px 0 10px}
+  .hero-ctas{gap:8px}
+  .hero-ctas .btn{padding:13px}
+  .hero-ctas .btn-ghost{display:none}
 }
 @media (max-width:380px){
   .hero-badges div{font-size:.7rem;padding:9px 10px}
@@ -693,7 +705,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
   <div class="wrap hero-grid">
     <div>
-      <picture><source type="image/avif" srcset="assets/img/logo-origen-128.avif 128w, assets/img/logo-origen-256.avif 256w, assets/img/logo-origen-512.avif 512w" sizes="(max-height:740px) 100px, 150px"><img src="assets/img/logo-origen-256.webp" srcset="assets/img/logo-origen-128.webp 128w, assets/img/logo-origen-256.webp 256w, assets/img/logo-origen-512.webp 512w" sizes="(max-height:740px) 100px, 150px" class="hero-emblem reveal" alt="Origen" width="512" height="512" fetchpriority="high"></picture>
+      <picture><source type="image/avif" srcset="assets/img/logo-origen-128.avif 128w, assets/img/logo-origen-256.avif 256w, assets/img/logo-origen-512.avif 512w" sizes="(max-height:600px) 110px, (max-height:740px) 144px, 170px"><img src="assets/img/logo-origen-256.webp" srcset="assets/img/logo-origen-128.webp 128w, assets/img/logo-origen-256.webp 256w, assets/img/logo-origen-512.webp 512w" sizes="(max-height:600px) 110px, (max-height:740px) 144px, 170px" class="hero-emblem reveal" alt="Origen" width="512" height="512" fetchpriority="high"></picture>
       <p class="eyebrow reveal">San Mateo Piñas · Oaxaca</p>
       <h1 class="reveal d1">Café que sabe<br>a su <em>origen.</em></h1>
       <p class="lead reveal d2">Nace a más de 1,600 metros de altitud en las montañas del sur de Oaxaca, cultivado bajo sombra natural. Seleccionado a mano y tostado en pequeños lotes, con notas de miel, nueces y canela.</p>

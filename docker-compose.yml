@@ -10,7 +10,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=cafeorigen
-      - traefik.http.routers.cafeorigen.rule=Host(`origencafe.gnssys.com`)
+      - traefik.http.routers.cafeorigen.rule=Host(`cafeorigen.gnssys.com`)
       - traefik.http.routers.cafeorigen.tls=true
       - traefik.http.routers.cafeorigen.entrypoints=web,websecure
       - traefik.http.routers.cafeorigen.tls.certresolver=letsencrypt
@@ -19,7 +19,7 @@ services:
       - traefik.http.middlewares.cafeorigen.headers.browserXSSFilter=true
       - traefik.http.middlewares.cafeorigen.headers.contentTypeNosniff=true
       - traefik.http.middlewares.cafeorigen.headers.forceSTSHeader=true
-      - traefik.http.middlewares.cafeorigen.headers.SSLHost=origencafe.gnssys.com
+      - traefik.http.middlewares.cafeorigen.headers.SSLHost=cafeorigen.gnssys.com
       - traefik.http.middlewares.cafeorigen.headers.STSIncludeSubdomains=true
       - traefik.http.middlewares.cafeorigen.headers.STSPreload=true
       - traefik.http.routers.cafeorigen.middlewares=cafeorigen@docker
