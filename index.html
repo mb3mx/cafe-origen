@@ -271,6 +271,66 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 .burger span{position:absolute;left:11px;right:11px;height:1.6px;border-radius:2px;background:var(--cream);transition:transform .45s cubic-bezier(.7,0,.2,1),opacity .3s,right .45s}
 .burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px;right:19px}
 
+/* Prepáralo conmigo (modo cocina) */
+.cook-cta{display:flex;align-items:center;gap:14px;width:100%;margin-top:22px;padding:16px 18px;border:0;border-radius:18px;cursor:pointer;text-align:left;font:inherit;
+  background:var(--green);color:var(--cream);box-shadow:0 16px 30px -18px rgba(14,34,25,.9);transition:transform .25s,box-shadow .25s}
+.cook-cta:hover{transform:translateY(-2px);box-shadow:0 20px 34px -18px rgba(14,34,25,1)}
+.cook-cta b{display:block;font-size:1rem}
+.cook-cta small{display:block;font-size:.78rem;opacity:.75}
+.cook-cta-i{width:44px;height:44px;flex:none;border-radius:14px;display:grid;place-items:center;background:var(--gold);color:var(--espresso)}
+.cook-cta-i svg{width:24px;height:24px}
+.cook-cta-chev{width:20px;height:20px;margin-left:auto;color:var(--gold-2);flex:none}
+.cook{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;background:rgba(6,12,9,.7);opacity:0;transition:opacity .25s}
+.cook.open{opacity:1}
+.cook-card{width:min(460px,100%);max-height:calc(100vh - 40px);display:flex;flex-direction:column;border-radius:26px;overflow:hidden;
+  background:radial-gradient(120% 60% at 100% 0%,#1f3d2d,#0f1d16 70%);border:1px solid rgba(212,175,98,.3);color:var(--cream);
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.8);transform:translateY(18px) scale(.98);transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.cook.open .cook-card{transform:none}
+.cook-head{display:flex;align-items:center;gap:12px;padding:20px 20px 14px}
+.cook-head small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.cook-head b{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:600;line-height:1.15}
+.cook-x{margin-left:auto;width:40px;height:40px;flex:none;border-radius:50%;border:1px solid rgba(212,175,98,.3);background:rgba(255,255,255,.04);color:var(--cream);display:grid;place-items:center;cursor:pointer}
+.cook-x svg{width:20px;height:20px}
+.cook-progress{height:4px;margin:0 20px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}
+.cook-progress i{display:block;height:100%;width:0;background:var(--gold);border-radius:4px;transition:width .4s}
+.cook-body{flex:1;overflow-y:auto;padding:22px 22px 8px;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:330px}
+.cook-step-n{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.cook-body h3{font-family:var(--serif);font-size:clamp(1.8rem,7vw,2.2rem);font-weight:600;line-height:1.1;margin:8px 0 10px}
+.cook-body p{font-size:1.02rem;line-height:1.55;opacity:.9;max-width:34ch}
+.cook-body p strong{color:var(--gold-2)}
+.cook-cups{display:flex;align-items:center;gap:14px;margin:6px 0 20px}
+.cook-cups button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(212,175,98,.45);background:rgba(212,175,98,.08);color:var(--gold-2);font-size:1.4rem;cursor:pointer}
+.cook-cups output{min-width:110px;font-family:var(--serif);font-size:2.4rem;font-weight:700;line-height:1}
+.cook-cups output small{display:block;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-top:4px}
+.cook-list{list-style:none;width:100%;display:grid;gap:8px;text-align:left}
+.cook-list li{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(212,175,98,.14);font-size:.95rem}
+.cook-list li b{color:var(--gold-2);font-weight:600;text-align:right}
+.cook-timer{position:relative;width:190px;height:190px;margin:18px 0 6px}
+.cook-timer svg{width:100%;height:100%;transform:rotate(-90deg)}
+.cook-timer circle{fill:none;stroke-width:9}
+.cook-timer .bg{stroke:rgba(255,255,255,.08)}
+.cook-timer .fg{stroke:var(--gold);stroke-linecap:round;transition:stroke-dashoffset .3s linear}
+.cook-timer.done .fg{stroke:#3fd46f}
+.cook-time{position:absolute;inset:0;display:grid;place-content:center;font-family:var(--serif);font-size:3rem;font-weight:700;letter-spacing:.02em}
+.cook-time small{display:block;max-width:120px;margin:2px auto 0;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.1em;line-height:1.3;text-transform:uppercase;opacity:.65;text-align:center}
+.cook-done-i{font-size:3.4rem;margin:10px 0 4px}
+.cook-nav{display:flex;gap:10px;padding:14px 20px 8px}
+.cook-btn{flex:1;min-height:54px;border-radius:999px;font:600 1rem var(--sans);cursor:pointer;border:1px solid rgba(212,175,98,.35);background:transparent;color:var(--cream)}
+.cook-btn[disabled]{opacity:.35;cursor:default}
+.cook-btn:focus,.cook-x:focus,.cook-cta:focus{outline:none}
+.cook-btn:focus-visible,.cook-x:focus-visible,.cook-cta:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+.cook-main{flex:1.6;border:0;background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--espresso);box-shadow:0 10px 24px -10px rgba(212,175,98,.7)}
+.cook-main.running{background:rgba(255,255,255,.08);color:var(--cream);box-shadow:none;border:1px solid rgba(212,175,98,.35)}
+.cook-awake{padding:4px 20px 18px;text-align:center;font-size:.74rem;opacity:.6;min-height:1.2em}
+@media (max-width:960px){
+  .cook{padding:0;place-items:stretch}
+  .cook-card{width:100%;max-height:none;height:100%;border-radius:0;border:0;padding-top:env(safe-area-inset-top)}
+  .cook-body{justify-content:center}
+  .cook-nav{padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+  .cook-timer{width:220px;height:220px}
+  .cook-time{font-size:3.4rem}
+}
+
 /* Popup de WhatsApp */
 .wa-scrim{position:fixed;inset:0;z-index:61;background:rgba(6,12,9,.45);opacity:0;transition:opacity .25s}
 .wa-scrim.open{opacity:1}
@@ -774,6 +834,12 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
           <li><div><b>Reposa y cuela</b><span>Tapa y deja reposar 5 minutos para que el café se asiente. Cuela con un colador fino o una manta y sirve en jarrito de barro.</span></div></li>
         </ol>
       </div>
+
+      <button type="button" class="cook-cta" id="cookOpen" aria-haspopup="dialog" aria-controls="cook">
+        <span class="cook-cta-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6M12 2v3"/></svg></span>
+        <span><b>Prepáralo conmigo</b><small>Paso a paso, con cronómetro y la pantalla encendida</small></span>
+        <svg class="cook-cta-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -864,6 +930,22 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
 <a class="wa-float" aria-haspopup="dialog" aria-expanded="false" aria-controls="waPop" href="https://wa.me/525537053034?text=Hola%2C%20me%20interesa%20el%20caf%C3%A9%20Origen" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="wa-face" viewBox="-42 -42 184 184" aria-hidden="true"><use class="wa-acc-back" href=""/><use href="#wa-head"/><use class="wa-feat" href="#wa-feat"/><use class="wa-acc" href=""/></svg></a>
 
+<div class="cook" id="cook" role="dialog" aria-modal="true" aria-labelledby="cookTitle" hidden>
+  <div class="cook-card">
+    <div class="cook-head">
+      <div><small id="cookMethod">Café de olla</small><b id="cookTitle">Prepáralo conmigo</b></div>
+      <button type="button" class="cook-x" id="cookClose" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="cook-progress" aria-hidden="true"><i id="cookBar"></i></div>
+    <div class="cook-body" id="cookBody"></div>
+    <div class="cook-nav">
+      <button type="button" class="cook-btn cook-prev" id="cookPrev">Anterior</button>
+      <button type="button" class="cook-btn cook-main" id="cookMain">Empezar</button>
+    </div>
+    <p class="cook-awake" id="cookAwake" aria-live="polite"></p>
+  </div>
+</div>
+
 <div class="wa-scrim" id="waScrim" hidden></div>
 <div class="wa-pop" id="waPop" role="dialog" aria-modal="true" aria-labelledby="waPopTitle" hidden>
   <div class="wa-pop-head">
@@ -909,6 +991,142 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       link.setAttribute('aria-label', greeting + ' Escríbenos por WhatsApp');
     }
   });
+
+  // Prepáralo conmigo: guía paso a paso con cronómetro, aviso sonoro y pantalla encendida
+  (() => {
+    const cook = document.getElementById('cook'), body = document.getElementById('cookBody');
+    const mainBtn = document.getElementById('cookMain'), prevBtn = document.getElementById('cookPrev');
+    const bar = document.getElementById('cookBar'), awakeEl = document.getElementById('cookAwake');
+    const openBtn = document.getElementById('cookOpen');
+    const cdas = g => Math.round(g / 5);
+    const RECIPES = {
+      olla: {
+        name: 'Café de olla', unit: 'tazas', cups: 4, min: 1, max: 12,
+        ingredients: n => [
+          ['Agua', `${(n * 250 / 1000).toLocaleString('es-MX')} L`],
+          ['Café molido para olla', `${cdas(n * 10)} cdas (${n * 10} g)`],
+          ['Piloncillo', `${n * 20}–${n * 25} g`],
+          ['Canela', `${Math.max(1, Math.round(n / 4))} ${Math.max(1, Math.round(n / 4)) === 1 ? 'raja' : 'rajas'}`]
+        ],
+        steps: n => [
+          { t: 'Hierve con especias', d: `Pon <strong>${(n * 250 / 1000).toLocaleString('es-MX')} L de agua</strong> en la olla con la canela y el piloncillo, a fuego medio.`, s: 360, l: 'hasta que hierva' },
+          { t: 'Disuelve el piloncillo', d: 'Mueve hasta que se deshaga por completo y el agua tome color ámbar.' },
+          { t: 'Apaga y agrega el café', d: `Apaga el fuego y añade <strong>${cdas(n * 10)} cucharadas</strong> de café. Revuelve. El café nunca debe hervir: se amarga.` },
+          { t: 'Reposa tapado', d: 'Tapa la olla y deja que el café se asiente.', s: 300, l: 'reposando' },
+          { t: 'Cuela y sirve', d: 'Cuela con un colador fino o una manta y sirve en jarrito de barro.' }
+        ]
+      },
+      cafetera: {
+        name: 'Cafetera de goteo', unit: 'tazas', cups: 2, min: 1, max: 12,
+        ingredients: n => [
+          ['Agua filtrada', `${n * 180} ml`],
+          ['Café molido para cafetera', `${cdas(n * 10)} cdas (${n * 10} g)`]
+        ],
+        steps: n => [
+          { t: 'Agua fresca', d: `Llena el depósito con <strong>${n * 180} ml</strong> de agua filtrada.` },
+          { t: 'Mide el café', d: `Pon <strong>${cdas(n * 10)} cucharadas (${n * 10} g)</strong> en el filtro y nivélalo sin apretar.` },
+          { t: 'Enciende la cafetera', d: 'Deja que gotee por completo antes de servir.', s: 300, l: 'goteando' },
+          { t: 'Sirve al momento', d: 'El café recién hecho es el más aromático. Evita dejarlo horas en la placa caliente.' }
+        ]
+      }
+    };
+    let method = 'olla', cups = 4, idx = -1, steps = [], timer = null, endAt = 0, left = 0, total = 0, state = 'idle', wake = null, audio = null;
+
+    const chime = () => {
+      try {
+        audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+        [0, .22, .44].forEach((t, i) => {
+          const o = audio.createOscillator(), g = audio.createGain();
+          o.type = 'sine'; o.frequency.value = [784, 988, 1175][i];
+          g.gain.setValueAtTime(0.0001, audio.currentTime + t);
+          g.gain.exponentialRampToValueAtTime(0.25, audio.currentTime + t + .02);
+          g.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + t + .5);
+          o.connect(g).connect(audio.destination); o.start(audio.currentTime + t); o.stop(audio.currentTime + t + .55);
+        });
+      } catch (e) {}
+      navigator.vibrate?.([220, 120, 220, 120, 400]);
+    };
+    const keepAwake = async () => {
+      if (!('wakeLock' in navigator)) { awakeEl.textContent = 'Consejo: mantén la pantalla encendida mientras preparas.'; return; }
+      try { wake = await navigator.wakeLock.request('screen'); awakeEl.textContent = '🔆 La pantalla se mantendrá encendida'; }
+      catch (e) { awakeEl.textContent = ''; }
+    };
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && !cook.hidden) keepAwake(); });
+    const mmss = s => { s = Math.max(0, Math.ceil(s)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+    const CIRC = 2 * Math.PI * 84;
+    const stopTimer = () => { clearInterval(timer); timer = null; };
+    const paintTimer = () => {
+      const fg = body.querySelector('.fg'), t = body.querySelector('.cook-time b');
+      if (!fg) return;
+      fg.style.strokeDashoffset = CIRC * (1 - left / total);
+      t.textContent = mmss(left);
+    };
+    const tick = () => {
+      left = (endAt - Date.now()) / 1000;
+      if (left <= 0) { left = 0; stopTimer(); state = 'done'; paintTimer(); body.querySelector('.cook-timer').classList.add('done');
+        body.querySelector('.cook-time small').textContent = '¡Listo!'; chime(); renderNav(); return; }
+      paintTimer();
+    };
+    const renderNav = () => {
+      prevBtn.disabled = idx <= -1;
+      mainBtn.classList.toggle('running', state === 'running');
+      const st = steps[idx];
+      if (idx === -1) mainBtn.textContent = 'Empezar';
+      else if (idx >= steps.length) mainBtn.textContent = 'Terminar';
+      else if (st && st.s && state === 'idle') mainBtn.textContent = `Iniciar ${mmss(st.s)}`;
+      else if (state === 'running') mainBtn.textContent = 'Pausar';
+      else if (state === 'paused') mainBtn.textContent = 'Continuar';
+      else mainBtn.textContent = idx === steps.length - 1 ? 'Terminé' : 'Siguiente';
+      bar.style.width = `${Math.max(0, idx + 1) / (steps.length + 1) * 100}%`;
+    };
+    const render = () => {
+      stopTimer(); state = 'idle';
+      const r = RECIPES[method];
+      steps = r.steps(cups);
+      if (idx === -1) {
+        body.innerHTML = `<span class="cook-step-n">Antes de empezar</span><h3>¿Cuántas tazas?</h3>
+          <div class="cook-cups"><button type="button" data-d="-1" aria-label="Menos tazas">−</button><output aria-live="polite">${cups}<small>${cups === 1 ? 'taza' : 'tazas'}</small></output><button type="button" data-d="1" aria-label="Más tazas">+</button></div>
+          <ul class="cook-list">${r.ingredients(cups).map(([a, b]) => `<li><span>${a}</span><b>${b}</b></li>`).join('')}</ul>`;
+        body.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { cups = Math.min(r.max, Math.max(r.min, cups + +b.dataset.d)); render(); });
+      } else if (idx >= steps.length) {
+        body.innerHTML = `<div class="cook-done-i" aria-hidden="true">☕</div><span class="cook-step-n">¡Buen provecho!</span><h3>Tu ${r.name.toLowerCase()} está listo</h3>
+          <p>¿Se te está acabando el café? Pide tu siguiente bolsa en un toque.</p>`;
+      } else {
+        const st = steps[idx];
+        body.innerHTML = `<span class="cook-step-n">Paso ${idx + 1} de ${steps.length}</span><h3>${st.t}</h3><p>${st.d}</p>` +
+          (st.s ? `<div class="cook-timer"><svg viewBox="0 0 190 190" aria-hidden="true"><circle class="bg" cx="95" cy="95" r="84"/><circle class="fg" cx="95" cy="95" r="84" stroke-dasharray="${CIRC}" stroke-dashoffset="0"/></svg>
+            <div class="cook-time" role="timer" aria-live="off"><b>${mmss(st.s)}</b><small>${st.l}</small></div></div>` : '');
+        if (st.s) { total = left = st.s; }
+      }
+      renderNav();
+    };
+    mainBtn.onclick = () => {
+      const st = steps[idx];
+      if (idx === -1) { idx = 0; return render(); }
+      if (idx >= steps.length) { close(); document.getElementById('pedido').scrollIntoView({ behavior: 'smooth' }); return; }
+      if (st.s && state === 'idle') { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); audio.resume?.(); endAt = Date.now() + left * 1000; state = 'running'; timer = setInterval(tick, 250); return renderNav(); }
+      if (state === 'running') { stopTimer(); state = 'paused'; left = (endAt - Date.now()) / 1000; return renderNav(); }
+      if (state === 'paused') { endAt = Date.now() + left * 1000; state = 'running'; timer = setInterval(tick, 250); return renderNav(); }
+      idx++; render();
+    };
+    prevBtn.onclick = () => { if (idx > -1) { idx--; render(); } };
+    const open = () => {
+      method = document.getElementById('t-olla').getAttribute('aria-selected') === 'true' ? 'olla' : 'cafetera';
+      cups = RECIPES[method].cups; idx = -1;
+      document.getElementById('cookMethod').textContent = RECIPES[method].name;
+      cook.hidden = false; void cook.offsetWidth; cook.classList.add('open'); document.body.classList.add('lock');
+      render(); keepAwake(); mainBtn.focus({ preventScroll: true });
+    };
+    const close = () => {
+      stopTimer(); cook.classList.remove('open'); document.body.classList.remove('lock');
+      setTimeout(() => { if (!cook.classList.contains('open')) cook.hidden = true; }, 260);
+      wake?.release?.(); wake = null; openBtn.focus({ preventScroll: true });
+    };
+    openBtn.addEventListener('click', open);
+    document.getElementById('cookClose').addEventListener('click', close);
+    cook.addEventListener('click', e => { if (e.target === cook) close(); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !cook.hidden) close(); });
+  })();
 
   // Popup de WhatsApp: en lugar de abrir WhatsApp directo, ofrece armar el pedido o escribir
   const waPop = document.getElementById('waPop'), waScrim = document.getElementById('waScrim');
