@@ -199,7 +199,7 @@ section{padding:clamp(80px,11vw,140px) 0;position:relative}
 .b-product{display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;margin-bottom:26px;border-radius:16px;background:rgba(212,175,98,.08);border:1px solid rgba(212,175,98,.22)}
 .b-product img{width:44px;height:auto;flex:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))}
 .b-product small{display:block;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.b-product b{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.2}
+.b-product b{display:block;white-space:nowrap;font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.2}
 .b-product span{display:block;font-size:.76rem;opacity:.65}
 .b-step{border:0;padding:0;margin:0 0 24px;min-width:0}
 .b-legend{display:flex;align-items:center;gap:10px;padding:0;margin-bottom:12px;font-size:.92rem;font-weight:600;color:var(--cream)}
@@ -230,6 +230,16 @@ section{padding:clamp(80px,11vw,140px) 0;position:relative}
 .btn-wa{background:linear-gradient(135deg,#2fbf55,#1c9a3d);color:#fff;box-shadow:0 12px 26px -10px rgba(37,211,102,.6)}
 .btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(37,211,102,.75)}
 .builder .btn{width:100%;justify-content:center;padding:17px}
+.hero-price{display:flex;align-items:baseline;gap:8px;margin:-8px 0 16px}
+.hero-price b{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold-2);line-height:1}
+.hero-price span{font-size:.8rem;letter-spacing:.04em;opacity:.8}
+.gold{color:var(--gold-2)}
+.b-price{margin-left:auto;align-self:center;font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--gold-2);line-height:1;white-space:nowrap}
+.b-price small{display:block;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.12em;text-align:right;opacity:.7;margin-top:3px}
+.b-total{display:flex;align-items:center;justify-content:space-between;margin:-4px 0 16px;padding:14px 16px;border-radius:14px;border:1px dashed rgba(212,175,98,.4);background:rgba(212,175,98,.06)}
+.b-total span{font-weight:600}
+.b-total small{font-weight:400;opacity:.6;font-size:.78rem}
+.b-total strong{font-family:var(--serif);font-size:1.6rem;color:var(--gold-2)}
 .b-note{margin-top:12px;text-align:center;font-size:.76rem;opacity:.6}
 
 /* Footer */
@@ -456,6 +466,15 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
     background:linear-gradient(145deg,#34d058 0%,#1fa83c 100%);box-shadow:0 6px 14px rgba(29,150,62,.35)}
 
 }
+/* Pantallas de altura media (iPhone 12–15): se compacta un poco para que la portada quepa con el precio */
+@media (max-width:960px) and (max-height:900px){
+  .hero-emblem{margin-bottom:14px}
+  .hero h1{margin:10px 0 12px}
+  .hero .lead{font-size:.96rem;line-height:1.6;margin-bottom:18px}
+  .hero-price{margin:-4px 0 12px}
+  .hero-badges{margin-top:14px;gap:6px}
+  .hero-badges div{padding:8px 12px}
+}
 /* Pantallas bajas (iPhone SE y similares): la portada sigue cabiendo en una sola pantalla */
 @media (max-width:960px) and (max-height:740px){
   .hero{padding-top:84px;padding-bottom:28px}
@@ -574,6 +593,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       <p class="eyebrow reveal">San Mateo Piñas · Oaxaca</p>
       <h1 class="reveal d1">Café que sabe<br>a su <em>origen.</em></h1>
       <p class="lead reveal d2">Nace a más de 1,600 metros de altitud en las montañas del sur de Oaxaca, cultivado bajo sombra natural. Seleccionado a mano y tostado en pequeños lotes, con notas de miel, nueces y canela.</p>
+      <p class="hero-price reveal d3"><b>$250</b> <span>MXN · bolsa de 500 g</span></p>
       <div class="hero-ctas reveal d3">
         <a href="#pedido" class="btn btn-gold"><svg><use href="#wa"/></svg>Arma tu pedido</a>
         <a href="#proceso" class="btn btn-ghost">De la sierra a tu taza →</a>
@@ -711,7 +731,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       <div><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20 9 8l4 6 3-4 6 10z"/></svg>Altitud</small><b>+1,600 m s.n.m.</b></div>
       <div><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15M5 19l8-8"/></svg>Proceso</small><b>Orgánico, bajo sombra</b></div>
       <div><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(30 12 12)"/><path d="M9 5c4 3 0 9 6 14"/></svg>Notas</small><b>Miel, nueces, canela</b></div>
-      <div><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>Contenido</small><b>Bolsa de 500 g</b></div>
+      <div><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>Contenido</small><b>Bolsa de 500 g · $250</b></div>
     </div>
   </div>
 </section>
@@ -764,14 +784,15 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
     <div>
       <p class="eyebrow reveal">Haz tu pedido</p>
       <h2 class="reveal d1">Arma tu bolsa<br>en <em>30 segundos.</em></h2>
-      <p class="lead reveal d2">Elige molienda y cantidad. Te abrimos WhatsApp con tu pedido ya escrito; solo lo envías y nosotros te confirmamos precio, envío y forma de pago.</p>
+      <p class="lead reveal d2">Cada bolsa de 500 g cuesta <b class="gold">$250 MXN</b>. Elige molienda y cantidad; te abrimos WhatsApp con tu pedido ya escrito y nosotros te confirmamos el envío y la forma de pago.</p>
       <picture><source media="(max-width:960px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="1" height="1"><source type="image/avif" srcset="assets/img/bolsa-reverso-300.avif 300w, assets/img/bolsa-reverso-575.avif 575w" sizes="250px"><img src="assets/img/bolsa-reverso-575.webp" srcset="assets/img/bolsa-reverso-300.webp 300w, assets/img/bolsa-reverso-575.webp 575w" sizes="250px" class="order-bag reveal d3" alt="Reverso de la bolsa Origen con la ficha: San Mateo Piñas, proceso orgánico, notas de miel, nueces y canela" width="575" height="1099" loading="lazy" decoding="async"></picture>
     </div>
 
     <form class="builder reveal d2" id="builder">
       <div class="b-product">
         <picture><source type="image/avif" srcset="assets/img/bolsa-frente-360.avif"><img src="assets/img/bolsa-frente-360.webp" alt="" width="360" height="673" loading="lazy" decoding="async"></picture>
-        <div><small>Tu bolsa</small><b>Café Origen · 500 g</b><span>San Mateo Piñas · Tostado artesanal</span></div>
+        <div><small>Tu bolsa</small><b>Café Origen</b><span>500 g · San Mateo Piñas</span></div>
+        <strong class="b-price">$250<small>MXN</small></strong>
         <input type="hidden" name="size" value="500 g">
       </div>
 
@@ -804,8 +825,9 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
         <div class="chat"><div class="chat-bubble" aria-live="polite"><span id="msg"></span><span class="chat-meta" aria-hidden="true">ahora <em>✓✓</em></span></div></div>
       </div>
 
+      <div class="b-total" aria-live="polite"><span>Total <small>(+ envío)</small></span><strong id="total">$250 MXN</strong></div>
       <button type="submit" class="btn btn-wa"><svg><use href="#wa"/></svg>Enviar pedido por WhatsApp</button>
-      <p class="b-note">Te confirmamos precio, envío y forma de pago por WhatsApp.</p>
+      <p class="b-note">Te confirmamos el costo de envío y la forma de pago por WhatsApp.</p>
     </form>
   </div>
 </section>
@@ -853,7 +875,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
     <p class="wa-bubble"><span id="waGreet">¡Hola!</span> ☕ ¿Cómo te ayudamos?</p>
     <a class="wa-opt wa-opt-main" href="#pedido" data-close><span class="wa-opt-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></span><span><b>Arma tu pedido</b><small>Elige molienda y cantidad</small></span><svg class="wa-opt-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
     <a class="wa-opt" href="https://wa.me/525537053034?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20el%20caf%C3%A9%20Origen%20%E2%98%95" target="_blank" rel="noopener" data-close><span class="wa-opt-i wa-g"><svg aria-hidden="true"><use href="#wa"/></svg></span><span><b>Tengo una pregunta</b><small>Abre WhatsApp</small></span><svg class="wa-opt-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
-    <a class="wa-opt" href="https://wa.me/525537053034?text=Hola%2C%20%C2%BFme%20compartes%20precios%20y%20opciones%20de%20env%C3%ADo%20del%20caf%C3%A9%20Origen%3F" target="_blank" rel="noopener" data-close><span class="wa-opt-i wa-g"><svg aria-hidden="true"><use href="#wa"/></svg></span><span><b>Precios y envíos</b><small>Abre WhatsApp</small></span><svg class="wa-opt-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a class="wa-opt" href="https://wa.me/525537053034?text=Hola%2C%20%C2%BFme%20compartes%20las%20opciones%20de%20env%C3%ADo%20y%20formas%20de%20pago%20del%20caf%C3%A9%20Origen%3F" target="_blank" rel="noopener" data-close><span class="wa-opt-i wa-g"><svg aria-hidden="true"><use href="#wa"/></svg></span><span><b>Envíos y formas de pago</b><small>Abre WhatsApp</small></span><svg class="wa-opt-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
   </div>
 </div>
 
@@ -1000,11 +1022,14 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   // Constructor de pedido por WhatsApp
   const form = document.getElementById('builder'), qtyOut = document.getElementById('qty'), msgEl = document.getElementById('msg');
   let qty = 1;
+  const PRICE = 250; // MXN por bolsa de 500 g
+  const money = n => '$' + n.toLocaleString('es-MX') + ' MXN';
+  const totalEl = document.getElementById('total');
   const message = () => {
     const size = form.size.value, grind = form.grind.value;
-    return `¡Hola! Quiero pedir café Origen ☕\n• ${qty} ${qty === 1 ? 'bolsa' : 'bolsas'} de ${size}\n• ${grind.charAt(0).toUpperCase() + grind.slice(1)}\n¿Me compartes precio y opciones de envío?`;
+    return `¡Hola! Quiero pedir café Origen ☕\n• ${qty} ${qty === 1 ? 'bolsa' : 'bolsas'} de ${size}\n• ${grind.charAt(0).toUpperCase() + grind.slice(1)}\n• Total: ${money(qty * PRICE)} + envío\n¿Me compartes el costo de envío y la forma de pago?`;
   };
-  const render = () => { qtyOut.textContent = qty; msgEl.innerText = message(); };
+  const render = () => { qtyOut.textContent = qty; totalEl.textContent = money(qty * PRICE); msgEl.innerText = message(); };
   document.getElementById('plus').onclick = () => { qty = Math.min(20, qty + 1); render(); };
   document.getElementById('minus').onclick = () => { qty = Math.max(1, qty - 1); render(); };
   form.addEventListener('change', render);
