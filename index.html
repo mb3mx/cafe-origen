@@ -272,6 +272,16 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 .burger span{position:absolute;left:11px;right:11px;height:1.6px;border-radius:2px;background:var(--cream);transition:transform .45s cubic-bezier(.7,0,.2,1),opacity .3s,right .45s}
 .burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px;right:19px}
 
+/* Medidas de referencia */
+.measures{margin-top:22px;padding:18px 18px 16px;border-radius:18px;background:#fff;border:1px solid rgba(154,122,60,.22)}
+.measures-t{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9a7a3c;margin-bottom:12px}
+.measures-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.m-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding:12px 6px;border-radius:14px;background:var(--paper)}
+.m-item svg{width:56px;height:56px;margin-bottom:6px}
+.m-item b{font-size:.9rem;color:var(--ink);white-space:nowrap}
+.m-item small{font-size:.72rem;color:#6b5a4a;line-height:1.35}
+.cook-ref{margin-top:12px;font-size:.78rem;opacity:.65}
+
 /* Prepáralo conmigo (modo cocina) */
 .cook-cta{display:flex;align-items:center;gap:14px;width:100%;margin-top:22px;padding:16px 18px;border:0;border-radius:18px;cursor:pointer;text-align:left;font:inherit;
   background:var(--green);color:var(--cream);box-shadow:0 16px 30px -18px rgba(14,34,25,.9);transition:transform .25s,box-shadow .25s}
@@ -485,6 +495,12 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   .spec b{font-size:1.2rem}
 
   /* Preparación */
+  .measures{padding:16px 12px 14px}
+  .measures-g{gap:8px}
+  .m-item{padding:10px 4px}
+  .m-item svg{width:46px;height:46px}
+  .m-item b{font-size:.78rem;white-space:normal;line-height:1.25}
+  .m-item small{font-size:.66rem}
   .prep{gap:8px}
   .tabs{display:flex;width:100%;margin:22px 0 22px}
   .tab{flex:1;justify-content:center;padding:13px 10px}
@@ -837,6 +853,15 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
         </ol>
       </div>
 
+      <div class="measures" aria-label="Medidas de referencia">
+        <p class="measures-t">Medidas de referencia</p>
+        <div class="measures-g">
+          <div class="m-item"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 22h30v14a15 15 0 0 1-15 15h0a15 15 0 0 1-15-15z" fill="#fff" stroke="#163527" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 27h26v9a13 13 0 0 1-13 13h0a13 13 0 0 1-13-13z" fill="#6b3e22"/><path d="M44 26h3.5a6 6 0 0 1 0 12H43" fill="none" stroke="#163527" stroke-width="2.4"/><path d="M8 55h42" stroke="#163527" stroke-width="2.4" stroke-linecap="round"/><path d="M23 16c-2-3 2-5 0-8M30 16c-2-3 2-5 0-8M37 16c-2-3 2-5 0-8" fill="none" stroke="#c9a35a" stroke-width="2.2" stroke-linecap="round"/></svg><b>1 taza = 180 ml</b><small>Taza chica de cafetera</small></div>
+          <div class="m-item"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 18h28l-2 6c3 4 4 9 3 15-1 8-7 14-15 14s-14-6-15-14c-1-6 0-11 3-15z" fill="#c0673a" stroke="#7a3a1c" stroke-width="2.4" stroke-linejoin="round"/><path d="M19 30c4 2 20 2 24 0" fill="none" stroke="#f3d7a8" stroke-width="2" stroke-dasharray="2 3"/><path d="M45.5 28c6 0 7 11 0 12" fill="none" stroke="#7a3a1c" stroke-width="2.6" stroke-linecap="round"/><ellipse cx="31" cy="18" rx="14" ry="3" fill="#3a2414"/><path d="M25 12c-2-3 2-5 0-8M32 12c-2-3 2-5 0-8M39 12c-2-3 2-5 0-8" fill="none" stroke="#c9a35a" stroke-width="2.2" stroke-linecap="round"/></svg><b>1 jarrito = 250 ml</b><small>Para café de olla</small></div>
+          <div class="m-item"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M38 30 58 52" stroke="#163527" stroke-width="5" stroke-linecap="round"/><path d="M38 30 58 52" stroke="#e8e2d4" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="26" cy="22" rx="17" ry="12" transform="rotate(38 26 22)" fill="#e8e2d4" stroke="#163527" stroke-width="2.4"/><path d="M14 22c2-7 9-12 17-10 6 2 9 7 8 11-4 3-11 4-17 2-4-1-7-2-8-3z" fill="#6b3e22"/><path d="M15 21c5-1 16-1 23 2" stroke="#8a5432" stroke-width="1.6" fill="none"/></svg><b>1 cda. rasa ≈ 5 g</b><small>Cucharada sopera de café molido</small></div>
+        </div>
+      </div>
+
       <button type="button" class="cook-cta" id="cookOpen" aria-haspopup="dialog" aria-controls="cook">
         <span class="cook-cta-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6M12 2v3"/></svg></span>
         <span><b>Prepáralo conmigo</b><small>Paso a paso, con cronómetro y la pantalla encendida</small></span>
@@ -1088,7 +1113,8 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       if (idx === -1) {
         body.innerHTML = `<span class="cook-step-n">Antes de empezar</span><h3>¿Cuántas tazas?</h3>
           <div class="cook-cups"><button type="button" data-d="-1" aria-label="Menos tazas">−</button><output aria-live="polite">${cups}<small>${cups === 1 ? 'taza' : 'tazas'}</small></output><button type="button" data-d="1" aria-label="Más tazas">+</button></div>
-          <ul class="cook-list">${r.ingredients(cups).map(([a, b]) => `<li><span>${a}</span><b>${b}</b></li>`).join('')}</ul>`;
+          <ul class="cook-list">${r.ingredients(cups).map(([a, b]) => `<li><span>${a}</span><b>${b}</b></li>`).join('')}</ul>
+          <p class="cook-ref">${method === 'olla' ? '1 taza (jarrito) = 250 ml' : '1 taza = 180 ml'} · 1 cucharada sopera rasa ≈ 5 g de café</p>`;
         body.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { cups = Math.min(r.max, Math.max(r.min, cups + +b.dataset.d)); render(); });
       } else if (idx >= steps.length) {
         body.innerHTML = `<div class="cook-done-i" aria-hidden="true">☕</div><span class="cook-step-n">¡Buen provecho!</span><h3>Tu ${r.name.toLowerCase()} está listo</h3>
