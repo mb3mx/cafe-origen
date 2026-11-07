@@ -272,6 +272,27 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 .burger span{position:absolute;left:11px;right:11px;height:1.6px;border-radius:2px;background:var(--cream);transition:transform .45s cubic-bezier(.7,0,.2,1),opacity .3s,right .45s}
 .burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px;right:19px}
 
+/* Calcula tu café */
+.calc{margin:0 0 26px;padding:20px;border-radius:20px;background:#fff;border:1px solid rgba(154,122,60,.22);box-shadow:0 18px 40px -30px rgba(42,29,21,.5)}
+.calc-t{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9a7a3c;margin-bottom:14px}
+.calc-t span{letter-spacing:.08em;color:#6b5a4a;font-weight:600}
+.calc-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.calc-l{font-weight:600;font-size:.95rem;color:var(--ink)}
+.seg{display:inline-flex;padding:4px;border-radius:999px;background:#efe6d3}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;padding:9px 16px;border-radius:999px;font-size:.86rem;font-weight:600;color:#5b4a3c;cursor:pointer;transition:background .2s,color .2s}
+.seg input:checked+span{background:var(--green);color:var(--cream)}
+.seg input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.calc-water{margin:6px 0 4px}
+.calc-water output{font-family:var(--sans);font-size:1.35rem;font-weight:700;color:var(--green);font-variant-numeric:tabular-nums}
+#calcWater{width:100%;height:28px;accent-color:var(--green);cursor:pointer}
+.calc-scale{display:flex;justify-content:space-between;font-size:.7rem;color:#8a7966;margin:0 2px 14px}
+.calc-res{padding:18px;border-radius:16px;background:var(--green);color:var(--cream);text-align:center}
+.calc-res small{display:block;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.calc-res b{display:block;font-family:var(--serif);font-size:2.6rem;font-weight:700;line-height:1.1;color:var(--gold-2);margin:4px 0}
+.calc-res span{display:block;font-size:.92rem}
+.calc-res em{display:block;font-style:normal;font-size:.8rem;opacity:.7;margin-top:6px}
+
 /* Medidas de referencia */
 .measures{margin-top:22px;padding:18px 18px 16px;border-radius:18px;background:#fff;border:1px solid rgba(154,122,60,.22)}
 .measures-t{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9a7a3c;margin-bottom:12px}
@@ -495,6 +516,11 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   .spec b{font-size:1.2rem}
 
   /* Preparación */
+  .calc{padding:16px}
+  .calc-row:first-of-type{flex-direction:column;align-items:stretch}
+  .seg{display:flex}
+  .seg label{flex:1}
+  .seg span{text-align:center;padding:10px 6px}
   .measures{padding:16px 12px 14px}
   .measures-g{gap:8px}
   .m-item{padding:10px 4px}
@@ -833,6 +859,30 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
         </button>
       </div>
 
+      <div class="calc" id="calc">
+        <p class="calc-t">Calcula tu café <span id="calcMethod">· Cafetera</span></p>
+        <div class="calc-row">
+          <span class="calc-l" id="calcIntL">Intensidad</span>
+          <div class="seg" role="radiogroup" aria-labelledby="calcIntL">
+            <label><input type="radio" name="calcInt" value="suave"><span>Suave</span></label>
+            <label><input type="radio" name="calcInt" value="normal" checked><span>Normal</span></label>
+            <label><input type="radio" name="calcInt" value="fuerte"><span>Fuerte</span></label>
+          </div>
+        </div>
+        <div class="calc-row calc-water">
+          <label class="calc-l" for="calcWater">Cantidad de agua</label>
+          <output id="calcWaterOut" for="calcWater">1 L</output>
+        </div>
+        <input type="range" id="calcWater" min="250" max="3000" step="250" value="1000" aria-describedby="calcWaterOut">
+        <div class="calc-scale" aria-hidden="true"><span>250 ml</span><span>3 L</span></div>
+        <div class="calc-res" aria-live="polite">
+          <small>Café molido necesario</small>
+          <b id="calcG">55 gramos</b>
+          <span id="calcCdas">Aproximadamente 11 cucharadas soperas rasas</span>
+          <em id="calcCups">Para unas 6 tazas de 180 ml</em>
+        </div>
+      </div>
+
       <div class="recipe active" id="r-cafetera" role="tabpanel" aria-labelledby="t-cafetera">
         <div class="recipe-meta"><span>☕ 10 g (2 cdas.) por taza</span><span>💧 180 ml de agua</span><span>⚙️ Molienda media</span></div>
         <ol>
@@ -1018,6 +1068,29 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       link.setAttribute('aria-label', greeting + ' Escríbenos por WhatsApp');
     }
   });
+
+  // Calcula tu café: gramos según método, intensidad y cantidad de agua
+  (() => {
+    const RATIO = { cafetera: { suave: 45, normal: 55, fuerte: 70, cup: 180, name: 'Cafetera' },
+                    olla:     { suave: 30, normal: 40, fuerte: 50, cup: 250, name: 'Café de olla' } };
+    const water = document.getElementById('calcWater'), out = document.getElementById('calcWaterOut');
+    const vol = ml => ml < 1000 ? `${ml} ml` : `${(ml / 1000).toLocaleString('es-MX')} L`;
+    const calc = () => {
+      const m = document.getElementById('t-olla').getAttribute('aria-selected') === 'true' ? 'olla' : 'cafetera';
+      const r = RATIO[m], ml = +water.value, intensity = document.querySelector('input[name="calcInt"]:checked').value;
+      const g = Math.round(ml / 1000 * r[intensity]), cdas = Math.max(1, Math.round(g / 5)), cups = Math.max(1, Math.round(ml / r.cup));
+      out.textContent = vol(ml);
+      water.setAttribute('aria-valuetext', vol(ml));
+      document.getElementById('calcMethod').textContent = '· ' + r.name;
+      document.getElementById('calcG').textContent = `${g} gramos`;
+      document.getElementById('calcCdas').textContent = `Aproximadamente ${cdas} ${cdas === 1 ? 'cucharada sopera rasa' : 'cucharadas soperas rasas'}`;
+      document.getElementById('calcCups').textContent = `${cups === 1 ? 'Para 1 taza' : `Para unas ${cups} tazas`} de ${r.cup} ml${m === 'olla' ? ' (jarrito)' : ''}`;
+    };
+    water.addEventListener('input', calc);
+    document.querySelectorAll('input[name="calcInt"]').forEach(i => i.addEventListener('change', calc));
+    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', calc));
+    calc();
+  })();
 
   // Prepáralo conmigo: guía paso a paso con cronómetro, aviso sonoro y pantalla encendida
   (() => {
