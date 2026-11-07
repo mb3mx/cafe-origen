@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  cafeorigen:
+    image: ghcr.io/mb3mx/cafe-origen:1.0.0
+    container_name: cafeorigen
+    restart: always
+    networks:
+      - toolsnetwork
+    expose:
+      - 80
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.cafeorigen.rule=Host(`origencafe.gnssys.com`)
+      - traefik.http.routers.cafeorigen.tls=true
+      - traefik.http.routers.cafeorigen.entrypoints=web,websecure
+      - traefik.http.routers.cafeorigen.tls.certresolver=letsencrypt
+      - traefik.http.middlewares.cafeorigen.headers.SSLRedirect=true
+      - traefik.http.middlewares.cafeorigen.headers.STSSeconds=315360000
+      - traefik.http.middlewares.cafeorigen.headers.browserXSSFilter=true
+      - traefik.http.middlewares.cafeorigen.headers.contentTypeNosniff=true
+      - traefik.http.middlewares.cafeorigen.headers.forceSTSHeader=true
+      - traefik.http.middlewares.cafeorigen.headers.SSLHost=origencafe.gnssys.com
+      - traefik.http.middlewares.cafeorigen.headers.STSIncludeSubdomains=true
+      - traefik.http.middlewares.cafeorigen.headers.STSPreload=true
+      - traefik.http.routers.cafeorigen.middlewares=cafeorigen@docker
+      - traefik.http.services.cafeorigen.loadbalancer.server.port=80
+
+networks:
+  toolsnetwork:
+    external: true
+    name: toolsnetwork
