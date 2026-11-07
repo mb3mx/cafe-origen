@@ -1,0 +1,7 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales de pruebas
+_*.html
+_probe.js
