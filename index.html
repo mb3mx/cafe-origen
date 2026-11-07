@@ -241,6 +241,30 @@ section{padding:clamp(80px,11vw,140px) 0;position:relative}
 .b-total span{font-weight:600}
 .b-total small{font-weight:400;opacity:.6;font-size:.78rem}
 .b-total strong{font-family:var(--serif);font-size:1.6rem;color:var(--gold-2)}
+.stamps{margin-top:30px;padding:18px;border-radius:20px;background:rgba(12,23,18,.45);border:1px solid rgba(212,175,98,.3);max-width:440px}
+.stamps.full{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 40px -20px rgba(212,175,98,.5)}
+.stamps-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.stamps-i{font-size:1.6rem;line-height:1}
+.stamps-head b{display:block;font-size:1rem}
+.stamps-head small{display:block;font-size:.8rem;opacity:.75;margin-top:2px}
+.stamps-row{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.stamps-row li{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;border:1.5px dashed rgba(212,175,98,.4);color:rgba(212,175,98,.45);background:rgba(255,255,255,.02)}
+.stamps-row svg{width:62%;height:62%}
+.stamps-row .c-fill{fill:transparent}
+.stamps-row .c-steam{opacity:0}
+.stamps-row li.on{border:0;background:linear-gradient(145deg,var(--gold-2),var(--gold));color:var(--espresso);box-shadow:0 6px 14px -6px rgba(212,175,98,.7)}
+.stamps-row li.on .c-fill{fill:#6b3e22}
+.stamps-row li.on .c-steam{opacity:1}
+.stamps-row li.pop{animation:stampPop .6s cubic-bezier(.2,1.4,.4,1) both}
+.stamps-row li.pop:nth-child(2){animation-delay:.08s}.stamps-row li.pop:nth-child(3){animation-delay:.16s}.stamps-row li.pop:nth-child(4){animation-delay:.24s}.stamps-row li.pop:nth-child(5){animation-delay:.32s}.stamps-row li.pop:nth-child(6){animation-delay:.4s}
+@keyframes stampPop{0%{transform:scale(.3) rotate(-25deg);opacity:0}100%{transform:none;opacity:1}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.stamps-note{margin-top:12px;font-size:.74rem;opacity:.6}
+.b-reward{display:flex;align-items:center;gap:12px;margin:-6px 0 12px;padding:12px 14px;border-radius:14px;cursor:pointer;background:rgba(212,175,98,.12);border:1px solid var(--gold)}
+.b-reward input{width:20px;height:20px;accent-color:var(--gold);flex:none}
+.b-reward b{display:block;font-size:.92rem}
+.b-reward small{display:block;font-size:.74rem;opacity:.7}
+.b-reward em{margin-left:auto;font-style:normal;font-weight:700;color:var(--gold-2)}
 .b-note{margin-top:12px;text-align:center;font-size:.76rem;opacity:.6}
 
 /* Footer */
@@ -537,6 +561,8 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   .recipe li::before{font-size:1.4rem}
 
   /* Pedido */
+  .stamps{max-width:none;margin-top:24px;padding:16px}
+  .stamps-row{gap:6px}
   .order-bag{display:none}
   .builder{padding:20px 16px;border-radius:20px}
   .grind{gap:8px}
@@ -940,6 +966,17 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       <p class="eyebrow reveal">Haz tu pedido</p>
       <h2 class="reveal d1">Arma tu bolsa<br>en <em>30 segundos.</em></h2>
       <p class="lead reveal d2">Cada bolsa de 500 g cuesta <b class="gold">$250 MXN</b>. Elige molienda y cantidad; te abrimos WhatsApp con tu pedido ya escrito y nosotros te confirmamos el envío y la forma de pago.</p>
+
+      <div class="stamps reveal d3" id="stamps">
+        <div class="stamps-head">
+          <span class="stamps-i" aria-hidden="true">🎟️</span>
+          <div><b>Tu tarjeta de sellos</b><small id="stampsMsg">Junta 6 sellos y tu siguiente bolsa es gratis</small></div>
+        </div>
+        <ol class="stamps-row" id="stampsRow" aria-label="Sellos acumulados">
+          <li><svg viewBox="0 0 32 32" aria-hidden="true"><path class="c-fill" d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8z"/><path d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8zM23 14h2a3.5 3.5 0 0 1 0 7h-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path class="c-steam" d="M12 9c-1-1.5 1-2.5 0-4M15.5 9c-1-1.5 1-2.5 0-4M19 9c-1-1.5 1-2.5 0-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr">Sello 1</span></li><li><svg viewBox="0 0 32 32" aria-hidden="true"><path class="c-fill" d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8z"/><path d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8zM23 14h2a3.5 3.5 0 0 1 0 7h-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path class="c-steam" d="M12 9c-1-1.5 1-2.5 0-4M15.5 9c-1-1.5 1-2.5 0-4M19 9c-1-1.5 1-2.5 0-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr">Sello 2</span></li><li><svg viewBox="0 0 32 32" aria-hidden="true"><path class="c-fill" d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8z"/><path d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8zM23 14h2a3.5 3.5 0 0 1 0 7h-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path class="c-steam" d="M12 9c-1-1.5 1-2.5 0-4M15.5 9c-1-1.5 1-2.5 0-4M19 9c-1-1.5 1-2.5 0-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr">Sello 3</span></li><li><svg viewBox="0 0 32 32" aria-hidden="true"><path class="c-fill" d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8z"/><path d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8zM23 14h2a3.5 3.5 0 0 1 0 7h-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path class="c-steam" d="M12 9c-1-1.5 1-2.5 0-4M15.5 9c-1-1.5 1-2.5 0-4M19 9c-1-1.5 1-2.5 0-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr">Sello 4</span></li><li><svg viewBox="0 0 32 32" aria-hidden="true"><path class="c-fill" d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8z"/><path d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8zM23 14h2a3.5 3.5 0 0 1 0 7h-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path class="c-steam" d="M12 9c-1-1.5 1-2.5 0-4M15.5 9c-1-1.5 1-2.5 0-4M19 9c-1-1.5 1-2.5 0-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr">Sello 5</span></li><li><svg viewBox="0 0 32 32" aria-hidden="true"><path class="c-fill" d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8z"/><path d="M7 12h16v6a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8zM23 14h2a3.5 3.5 0 0 1 0 7h-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path class="c-steam" d="M12 9c-1-1.5 1-2.5 0-4M15.5 9c-1-1.5 1-2.5 0-4M19 9c-1-1.5 1-2.5 0-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="sr">Sello 6</span></li>
+        </ol>
+        <p class="stamps-note">Cada bolsa que pidas suma un sello. Tus sellos se guardan en este teléfono.</p>
+      </div>
       <picture><source media="(max-width:960px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="1" height="1"><source type="image/avif" srcset="assets/img/bolsa-reverso-300.avif 300w, assets/img/bolsa-reverso-575.avif 575w" sizes="250px"><img src="assets/img/bolsa-reverso-575.webp" srcset="assets/img/bolsa-reverso-300.webp 300w, assets/img/bolsa-reverso-575.webp 575w" sizes="250px" class="order-bag reveal d3" alt="Reverso de la bolsa Origen con la ficha: San Mateo Piñas, proceso orgánico, notas de miel, nueces y canela" width="575" height="1099" loading="lazy" decoding="async"></picture>
     </div>
 
@@ -980,6 +1017,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
         <div class="chat"><div class="chat-bubble" aria-live="polite"><span id="msg"></span><span class="chat-meta" aria-hidden="true">ahora <em>✓✓</em></span></div></div>
       </div>
 
+      <label class="b-reward" id="rewardRow" hidden><input type="checkbox" id="useReward" checked><span><b>🎁 Usar mi bolsa gratis</b><small>Se descuenta una bolsa de este pedido</small></span><em>−$250</em></label>
       <div class="b-total" aria-live="polite"><span>Total <small>(+ envío)</small></span><strong id="total">$250 MXN</strong></div>
       <button type="submit" class="btn btn-wa"><svg><use href="#wa"/></svg>Enviar pedido por WhatsApp</button>
       <p class="b-note">Te confirmamos el costo de envío y la forma de pago por WhatsApp.</p>
@@ -1350,24 +1388,63 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   document.fonts ? document.fonts.ready.then(placeActive) : placeActive();
   placeActive();
 
-  // Constructor de pedido por WhatsApp
+  // Constructor de pedido por WhatsApp + tarjeta de sellos
   const form = document.getElementById('builder'), qtyOut = document.getElementById('qty'), msgEl = document.getElementById('msg');
   let qty = 1;
   const PRICE = 250; // MXN por bolsa de 500 g
+  const GOAL = 6;    // sellos para una bolsa gratis
   const money = n => '$' + n.toLocaleString('es-MX') + ' MXN';
   const totalEl = document.getElementById('total');
-  const message = () => {
-    const size = form.size.value, grind = form.grind.value;
-    return `¡Hola! Quiero pedir café Origen ☕\n• ${qty} ${qty === 1 ? 'bolsa' : 'bolsas'} de ${size}\n• ${grind.charAt(0).toUpperCase() + grind.slice(1)}\n• Total: ${money(qty * PRICE)} + envío\n¿Me compartes el costo de envío y la forma de pago?`;
+  const rewardRow = document.getElementById('rewardRow'), useReward = document.getElementById('useReward');
+  const KEY = 'origen-sellos';
+  const loadCard = () => { try { return JSON.parse(localStorage.getItem(KEY)) || { stamps: 0, code: '' }; } catch (e) { return { stamps: 0, code: '' }; } };
+  const saveCard = c => { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} };
+  let card = loadCard();
+  const newCode = () => 'ORIGEN-' + GOAL + '-' + Array.from({ length: 4 }, () => 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 31)]).join('');
+  const hasReward = () => card.stamps >= GOAL;
+  const redeeming = () => hasReward() && useReward.checked;
+  const renderStamps = (popFrom = -1) => {
+    const shown = Math.min(card.stamps, GOAL);
+    document.querySelectorAll('#stampsRow li').forEach((li, i) => {
+      li.classList.toggle('on', i < shown);
+      li.classList.toggle('pop', i < shown && i >= popFrom && popFrom >= 0);
+    });
+    document.getElementById('stampsRow').setAttribute('aria-label', `${shown} de ${GOAL} sellos`);
+    const left = GOAL - shown;
+    document.getElementById('stampsMsg').textContent = hasReward()
+      ? '¡Tienes una bolsa gratis! Úsala en tu próximo pedido.'
+      : card.stamps === 0 ? `Junta ${GOAL} sellos y tu siguiente bolsa es gratis`
+      : `Llevas ${shown} de ${GOAL} · te ${left === 1 ? 'falta 1 bolsa' : `faltan ${left} bolsas`} para tu bolsa gratis`;
+    document.getElementById('stamps').classList.toggle('full', hasReward());
+    rewardRow.hidden = !hasReward();
   };
-  const render = () => { qtyOut.textContent = qty; totalEl.textContent = money(qty * PRICE); msgEl.innerText = message(); };
+  const message = () => {
+    const size = form.size.value, grind = form.grind.value, free = redeeming() ? 1 : 0;
+    const lines = [`¡Hola! Quiero pedir café Origen ☕`, `• ${qty} ${qty === 1 ? 'bolsa' : 'bolsas'} de ${size}`, `• ${grind.charAt(0).toUpperCase() + grind.slice(1)}`];
+    if (free) lines.push(`• 🎁 Uso mi bolsa gratis · código ${card.code}`);
+    lines.push(`• Total: ${money((qty - free) * PRICE)} + envío`);
+    lines.push(`• Tarjeta de sellos: ${Math.min(card.stamps, GOAL)} de ${GOAL}`);
+    lines.push('¿Me compartes el costo de envío y la forma de pago?');
+    return lines.join('\n');
+  };
+  const render = () => { qtyOut.textContent = qty; totalEl.textContent = money((qty - (redeeming() ? 1 : 0)) * PRICE); msgEl.innerText = message(); };
   document.getElementById('plus').onclick = () => { qty = Math.min(20, qty + 1); render(); };
   document.getElementById('minus').onclick = () => { qty = Math.max(1, qty - 1); render(); };
   form.addEventListener('change', render);
   form.addEventListener('submit', e => {
     e.preventDefault();
     window.open(`https://wa.me/${WA}?text=${encodeURIComponent(message())}`, '_blank', 'noopener');
+    // Actualiza la tarjeta: se canjea el premio y cada bolsa pagada suma un sello
+    const before = Math.min(card.stamps, GOAL), free = redeeming() ? 1 : 0;
+    if (free) card.stamps -= GOAL;
+    card.stamps += qty - free;
+    card.code = card.stamps >= GOAL ? (card.code && !free ? card.code : newCode()) : '';
+    saveCard(card);
+    renderStamps(free ? 0 : before);
+    render();
   });
+  if (hasReward() && !card.code) { card.code = newCode(); saveCard(card); }
+  renderStamps();
   render();
 })();
 </script>
