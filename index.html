@@ -12,7 +12,7 @@
 <meta property="og:title" content="Origen · Café 100% de origen oaxaqueño">
 <meta property="og:description" content="De San Mateo Piñas, Oaxaca, a tu taza. Cultivado a +1,600 m bajo sombra. Notas de miel, nueces y canela.">
 <meta property="og:image" content="https://www.cafeorigen.com.mx/assets/etiqueta-verde.jpg">
-<link rel="preload" as="image" href="assets/bolsa-frente.webp" type="image/webp">
+<link rel="preload" as="image" media="(min-width:961px)" type="image/avif" imagesrcset="assets/img/bolsa-frente-360.avif 360w, assets/img/bolsa-frente-588.avif 588w" imagesizes="340px" fetchpriority="high">
 <link rel="icon" type="image/png" href="assets/favicon.png?v=2">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
 <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
@@ -36,6 +36,7 @@
 html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:var(--sans);background:var(--espresso);color:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
+picture{display:contents}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
@@ -301,9 +302,10 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   .birds{display:none}
   .hero-grid>div:first-child{min-height:calc(100svh - 96px - 48px - env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center}
   .hero .bag-stage{margin:34px 0 10px}
-  .bag{width:min(260px,66vw)}
+  .bag{width:min(260px,66vw);animation:none}
+  .layer{will-change:auto}
   .seal{width:96px;height:96px;right:-30px}
-  .hero-emblem{display:block;width:124px;height:auto;margin:0 auto 22px;filter:drop-shadow(0 0 24px rgba(212,175,98,.3))}
+  .hero-emblem{display:block;width:150px;height:auto;margin:0 auto 22px;filter:drop-shadow(0 0 24px rgba(212,175,98,.3))}
   .hero::after{background:linear-gradient(180deg,rgba(12,23,18,.62) 0%,rgba(12,23,18,.5) 55%,rgba(12,23,18,.2) 100%)}
   .beans{opacity:.3}
   .hero h1{font-size:clamp(2.75rem,12.5vw,3.8rem);margin:14px 0 16px}
@@ -312,7 +314,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   .hero-ctas .btn{justify-content:center;padding:16px}
   .hero-badges{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
   .hero-badges div{justify-content:flex-start;gap:9px;padding:10px 12px;border-radius:12px;font-size:.74rem;letter-spacing:.02em;
-    border:1px solid rgba(212,175,98,.22);background:rgba(12,23,18,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+    border:1px solid rgba(212,175,98,.22);background:rgba(12,23,18,.55)}
   .hero-badges i{width:6px;height:6px;flex:none}
   .scroll-cue{display:none}
 
@@ -405,7 +407,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 @media (max-width:960px) and (max-height:740px){
   .hero{padding-top:84px;padding-bottom:28px}
   .hero-grid>div:first-child{min-height:calc(100svh - 84px - 28px)}
-  .hero-emblem{width:84px;margin-bottom:16px}
+  .hero-emblem{width:100px;margin-bottom:16px}
   .hero h1{font-size:2.6rem;margin:10px 0 12px}
   .hero .lead{font-size:.92rem;line-height:1.55;margin-bottom:20px}
   .hero-ctas .btn{padding:14px}
@@ -451,7 +453,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#inicio" class="brand" aria-label="Origen, inicio"><img class="brand-mark" src="assets/logo-origen.webp?v=2" alt="" width="42" height="42"><span class="brand-word">ORIGEN</span></a>
+    <a href="#inicio" class="brand" aria-label="Origen, inicio"><picture><source type="image/avif" srcset="assets/img/logo-origen-128.avif 128w" sizes="42px"><img src="assets/img/logo-origen-128.webp" srcset="assets/img/logo-origen-128.webp 128w" sizes="42px" class="brand-mark" alt="" width="42" height="42"></picture><span class="brand-word">ORIGEN</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#sierra">La sierra</a></li>
@@ -490,7 +492,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
           <stop offset=".72" stop-color="#b8743c"/>
           <stop offset="1" stop-color="#e9b874"/>
         </linearGradient>
-        <pattern id="beanTile" width="240" height="240" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><g stroke="#d4af62" stroke-width="1.3" stroke-linecap="round"><g transform="translate(34 42) rotate(20) scale(1.0)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(150 28) rotate(-35) scale(0.8)"><ellipse rx="9" ry="13" fill="#d4af62" fill-opacity=".35"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(206 122) rotate(62) scale(1.1)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(92 138) rotate(-12) scale(0.9)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(32 204) rotate(44) scale(0.75)"><ellipse rx="9" ry="13" fill="#d4af62" fill-opacity=".35"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(162 206) rotate(-58) scale(1.0)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(118 80) rotate(80) scale(0.6)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g></g><animateTransform attributeName="patternTransform" type="translate" additive="sum" from="0 0" to="240 -240" dur="160s" repeatCount="indefinite"/></pattern><linearGradient id="beanFadeG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset=".8" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="beanFade"><rect width="1440" height="900" fill="url(#beanFadeG)"/></mask>
+        <pattern id="beanTile" width="240" height="240" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><g stroke="#d4af62" stroke-width="1.3" stroke-linecap="round"><g transform="translate(34 42) rotate(20) scale(1.0)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(150 28) rotate(-35) scale(0.8)"><ellipse rx="9" ry="13" fill="#d4af62" fill-opacity=".35"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(206 122) rotate(62) scale(1.1)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(92 138) rotate(-12) scale(0.9)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(32 204) rotate(44) scale(0.75)"><ellipse rx="9" ry="13" fill="#d4af62" fill-opacity=".35"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(162 206) rotate(-58) scale(1.0)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g><g transform="translate(118 80) rotate(80) scale(0.6)"><ellipse rx="9" ry="13" fill="none"/><path d="M0-12.5C-5.5-4 5.5 4 0 12.5"/></g></g></pattern><linearGradient id="beanFadeG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset=".8" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="beanFade"><rect width="1440" height="900" fill="url(#beanFadeG)"/></mask>
         <radialGradient id="hsun"><stop offset="0" stop-color="#fff3d1"/><stop offset=".35" stop-color="#f7d595" stop-opacity=".9"/><stop offset="1" stop-color="#e9a95a" stop-opacity="0"/></radialGradient>
       </defs>
       <rect width="1440" height="900" fill="url(#hsky)"/>
@@ -515,7 +517,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
   <div class="wrap hero-grid">
     <div>
-      <img class="hero-emblem reveal" src="assets/logo-origen.webp?v=2" alt="Origen" width="320" height="320">
+      <picture><source type="image/avif" srcset="assets/img/logo-origen-128.avif 128w, assets/img/logo-origen-256.avif 256w, assets/img/logo-origen-512.avif 512w" sizes="(max-height:740px) 100px, 150px"><img src="assets/img/logo-origen-256.webp" srcset="assets/img/logo-origen-128.webp 128w, assets/img/logo-origen-256.webp 256w, assets/img/logo-origen-512.webp 512w" sizes="(max-height:740px) 100px, 150px" class="hero-emblem reveal" alt="Origen" width="512" height="512" fetchpriority="high"></picture>
       <p class="eyebrow reveal">San Mateo Piñas · Oaxaca</p>
       <h1 class="reveal d1">Café que sabe<br>a su <em>origen.</em></h1>
       <p class="lead reveal d2">Nace a más de 1,600 metros de altitud en las montañas del sur de Oaxaca, cultivado bajo sombra natural. Seleccionado a mano y tostado en pequeños lotes, con notas de miel, nueces y canela.</p>
@@ -533,12 +535,12 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
     <div class="bag-stage reveal d2">
       <div class="bag" id="bag">
-        <img src="assets/bolsa-frente.webp" alt="Bolsa de 500 g de café Origen, Café 100% de origen oaxaqueño" width="588" height="1100" fetchpriority="high">
+        <picture><source type="image/avif" srcset="assets/img/bolsa-frente-360.avif 360w, assets/img/bolsa-frente-588.avif 588w" sizes="(max-width:960px) 260px, 340px"><img src="assets/img/bolsa-frente-588.webp" srcset="assets/img/bolsa-frente-360.webp 360w, assets/img/bolsa-frente-588.webp 588w" sizes="(max-width:960px) 260px, 340px" alt="Bolsa de 500 g de café Origen, Café 100% de origen oaxaqueño" width="588" height="1100" decoding="async"></picture>
         <svg class="seal" viewBox="0 0 130 130" aria-hidden="true">
           <defs><path id="circ" d="M65 65 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0"/></defs>
           <circle cx="65" cy="65" r="62" fill="#0c1712" stroke="#d4af62"/>
           <text><textPath href="#circ" textLength="298" lengthAdjust="spacing">NUEVA COSECHA · SAN MATEO PIÑAS · </textPath></text>
-          <image href="assets/logo-origen.webp?v=2" x="41" y="41" width="48" height="48"/>
+          <image href="assets/img/logo-origen-128.webp" x="41" y="41" width="48" height="48"/>
         </svg>
       </div>
       <div class="bag-shadow"></div>
@@ -608,10 +610,10 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   <div class="wrap story">
     <div class="story-media reveal">
       <figure class="story-art">
-        <img src="assets/cafetal-sombra.webp" alt="Cafetal bajo sombra: plantas de café creciendo bajo árboles altos" width="880" height="1100" loading="lazy" id="storyImg">
+        <picture><source type="image/avif" srcset="assets/img/cafetal-sombra-480.avif 480w, assets/img/cafetal-sombra-880.avif 880w" sizes="(max-width:960px) 92vw, 540px"><img src="assets/img/cafetal-sombra-880.webp" srcset="assets/img/cafetal-sombra-480.webp 480w, assets/img/cafetal-sombra-880.webp 880w" sizes="(max-width:960px) 92vw, 540px" alt="Cafetal bajo sombra: plantas de café creciendo bajo árboles altos" width="880" height="1100" loading="lazy" decoding="async" id="storyImg"></picture>
         <figcaption class="story-tag"><span>Cultivo bajo sombra</span><b>+1,600 m s.n.m.</b></figcaption>
       </figure>
-      <div class="story-inset"><img src="assets/cerezas-cafe.webp" alt="Rama de cafeto con cerezas rojas maduras" width="420" height="420" loading="lazy"></div>
+      <div class="story-inset"><picture><source type="image/avif" srcset="assets/img/cerezas-cafe-240.avif 240w, assets/img/cerezas-cafe-420.avif 420w" sizes="(max-width:960px) 36vw, 240px"><img src="assets/img/cerezas-cafe-420.webp" srcset="assets/img/cerezas-cafe-240.webp 240w, assets/img/cerezas-cafe-420.webp 420w" sizes="(max-width:960px) 36vw, 240px" alt="Rama de cafeto con cerezas rojas maduras" width="420" height="420" loading="lazy" decoding="async"></picture></div>
       <p class="story-credit">Fotos: «Café bajo sombra», <a href="https://commons.wikimedia.org/wiki/File:Caf%C3%A9_bajo_sombra_-_49465736457.jpg" target="_blank" rel="noopener">Feria de Productores</a>, <a href="https://creativecommons.org/licenses/by/2.0/deed.es" target="_blank" rel="noopener">CC BY 2.0</a> · «Planta de café en Zihuateutla», <a href="https://commons.wikimedia.org/wiki/File:Planta_de_caf%C3%A9_en_Zihuateutla.JPG" target="_blank" rel="noopener">Jaontiveros</a>, dominio público.</p>
     </div>
     <div>
@@ -710,7 +712,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       <p class="eyebrow reveal">Haz tu pedido</p>
       <h2 class="reveal d1">Arma tu bolsa<br>en <em>30 segundos.</em></h2>
       <p class="lead reveal d2">Elige molienda y cantidad. Te abrimos WhatsApp con tu pedido ya escrito; solo lo envías y nosotros te confirmamos precio, envío y forma de pago.</p>
-      <img class="order-bag reveal d3" src="assets/bolsa-reverso.webp" alt="Reverso de la bolsa Origen con la ficha: San Mateo Piñas, proceso orgánico, notas de miel, nueces y canela" width="575" height="1099" loading="lazy">
+      <picture><source media="(max-width:960px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="1" height="1"><source type="image/avif" srcset="assets/img/bolsa-reverso-300.avif 300w, assets/img/bolsa-reverso-575.avif 575w" sizes="250px"><img src="assets/img/bolsa-reverso-575.webp" srcset="assets/img/bolsa-reverso-300.webp 300w, assets/img/bolsa-reverso-575.webp 575w" sizes="250px" class="order-bag reveal d3" alt="Reverso de la bolsa Origen con la ficha: San Mateo Piñas, proceso orgánico, notas de miel, nueces y canela" width="575" height="1099" loading="lazy" decoding="async"></picture>
     </div>
 
     <form class="builder reveal d2" id="builder">
@@ -747,7 +749,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   <div class="wrap">
     <div class="foot">
       <div class="foot-brand">
-        <a href="#inicio" class="foot-logo" aria-label="Origen, inicio"><img src="assets/logo-origen-completo.webp?v=2" alt="Origen" width="640" height="425" loading="lazy"></a>
+        <a href="#inicio" class="foot-logo" aria-label="Origen, inicio"><picture><source type="image/avif" srcset="assets/img/logo-origen-completo-360.avif 360w" sizes="170px"><img src="assets/img/logo-origen-completo-360.webp" srcset="assets/img/logo-origen-completo-360.webp 360w" sizes="170px" alt="Origen" width="360" height="239" loading="lazy" decoding="async"></picture></a>
         <p>Café 100% de origen oaxaqueño. Cultivado a más de 1,600 m en San Mateo Piñas, tostado artesanalmente y molido a tu gusto.</p>
       </div>
       <nav class="foot-nav" aria-label="Secciones">
@@ -778,7 +780,8 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 (() => {
   const WA = '525537053034';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) document.querySelector('.sierra svg')?.pauseAnimations?.();
+  // En pantallas táctiles no se mueve el SVG de la sierra al hacer scroll: en iPhone obliga a repintarlo en cada cuadro
+  const lite = matchMedia('(hover: none), (max-width: 960px)').matches;
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   // Carita de WhatsApp de temporada: cada mes lleva un detalle de su fecha importante
@@ -827,7 +830,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   let ticking = false;
   const frame = () => {
     onScroll();
-    if (!reduce) {
+    if (!reduce && !lite) {
       const y = Math.min(scrollY, innerHeight * 1.2);
       layers.forEach(l => l.style.transform = `translateY(${y * l.dataset.depth}px)`);
     }
@@ -839,7 +842,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
     const o = order.getBoundingClientRect();
     mbar.classList.toggle('show', ctaGone && !(o.top < innerHeight * .7 && o.bottom > innerHeight * .3));
     if (!reduce && storyImg) {
-      const sr = storyImg.parentElement.getBoundingClientRect();
+      const sr = storyImg.closest('figure').getBoundingClientRect();
       const sp = Math.max(0, Math.min(1, (innerHeight - sr.top) / (innerHeight + sr.height)));
       storyImg.style.transform = `translateY(${-sp * 13}%)`;
     }

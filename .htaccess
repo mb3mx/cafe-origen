@@ -1,0 +1,40 @@
+# Café Origen — rendimiento en Apache (XAMPP u hosting compartido).
+# En Docker se usa nginx.conf, que hace lo mismo.
+
+# Tipos que Apache no siempre conoce
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
+# Compresión gzip de texto
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json image/svg+xml
+</IfModule>
+
+# Caché: imágenes y fuentes 30 días (las rutas cambian al actualizarlas); la página siempre se revisa
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/avif "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/png  "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 30 days"
+  ExpiresByType text/html  "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(avif|webp|png|jpe?g|woff2)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Las fuentes de diseño originales no se sirven
+<IfModule mod_alias.c>
+  RedirectMatch 404 ^.*/assets/originales/
+</IfModule>
