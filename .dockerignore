@@ -1,0 +1,15 @@
+.git
+.gitignore
+.DS_Store
+README.md
+Dockerfile
+.dockerignore
+_*.html
+_probe.js
+# Fuentes de diseño y etiqueta para imprimir: viven en el repo, no en la imagen
+etiqueta-origen*
+assets/Unknown-2.png
+assets/Empaque*
+assets/Etiqueta*
+assets/etiqueta-verde.webp
+assets/logo-origen.png
