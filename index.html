@@ -195,22 +195,42 @@ section{padding:clamp(80px,11vw,140px) 0;position:relative}
 .order-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .order-bag{margin-top:44px;width:250px;height:auto;rotate:-7deg;filter:drop-shadow(0 30px 30px rgba(0,0,0,.5));transition:rotate .5s,translate .5s,opacity .9s}
 .order-bag:hover{rotate:-2deg;translate:0 -6px}
-.builder{background:rgba(12,23,18,.55);border:1px solid rgba(201,163,90,.3);border-radius:24px;padding:34px;backdrop-filter:blur(8px)}
-.field{margin-bottom:26px}
-.field>label,.field>p{display:block;font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.opts{display:flex;flex-wrap:wrap;gap:10px}
-.opt input{position:absolute;opacity:0;pointer-events:none}
-.opt span{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;border:1px solid rgba(241,230,205,.25);font-size:.88rem;cursor:pointer;transition:all .25s}
-.opt span:hover{border-color:var(--gold)}
-.opt input:checked+span{background:var(--gold);color:var(--espresso);border-color:var(--gold);font-weight:600}
-.opt input:focus-visible+span{outline:2px solid var(--gold-2);outline-offset:3px}
-.qty{display:inline-flex;align-items:center;border:1px solid rgba(241,230,205,.25);border-radius:999px}
-.qty button{width:46px;height:46px;border:0;background:none;color:var(--cream);font-size:1.3rem;cursor:pointer;border-radius:50%}
-.qty button:hover{color:var(--gold-2)}
-.qty output{min-width:40px;text-align:center;font-weight:700;font-size:1.05rem}
-.preview{margin:6px 0 24px;padding:18px 20px;border-radius:14px 14px 14px 4px;background:#e7f7dd;color:#1d2a1a;font-size:.9rem;line-height:1.55;position:relative}
-.preview small{display:block;font-size:.7rem;color:#5b6b55;margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.builder{background:rgba(12,23,18,.6);border:1px solid rgba(212,175,98,.3);border-radius:24px;padding:28px}
+.b-product{display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;margin-bottom:26px;border-radius:16px;background:rgba(212,175,98,.08);border:1px solid rgba(212,175,98,.22)}
+.b-product img{width:44px;height:auto;flex:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))}
+.b-product small{display:block;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.b-product b{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.2}
+.b-product span{display:block;font-size:.76rem;opacity:.65}
+.b-step{border:0;padding:0;margin:0 0 24px;min-width:0}
+.b-legend{display:flex;align-items:center;gap:10px;padding:0;margin-bottom:12px;font-size:.92rem;font-weight:600;color:var(--cream)}
+.b-legend i{font-style:normal;width:24px;height:24px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--espresso);font-size:.74rem;font-weight:700}
+.grind{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.g-opt{position:relative}
+.g-opt input{position:absolute;opacity:0;pointer-events:none}
+.g-opt span{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;padding:16px 8px 14px;border-radius:16px;
+  border:1px solid rgba(241,230,205,.16);background:rgba(255,255,255,.03);cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.g-opt span:hover{border-color:rgba(212,175,98,.5)}
+.g-opt svg{width:32px;height:32px;margin-bottom:6px;color:var(--gold-2)}
+.g-opt b{font-size:.9rem;font-weight:600}
+.g-opt small{font-size:.7rem;opacity:.6;line-height:1.3}
+.g-opt input:checked+span{border-color:var(--gold);background:rgba(212,175,98,.14);box-shadow:inset 0 0 0 1px var(--gold)}
+.g-opt input:checked+span::after{content:"✓";position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--espresso);font-size:.68rem;font-weight:800}
+.g-opt input:focus-visible+span{outline:2px solid var(--gold-2);outline-offset:3px}
+.b-qty{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.b-qty .b-legend{margin:0}
+.qty{display:inline-flex;align-items:center;gap:6px}
+.qty button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(212,175,98,.45);background:rgba(212,175,98,.06);color:var(--gold-2);font-size:1.25rem;line-height:1;cursor:pointer;transition:background .2s}
+.qty button:hover{background:rgba(212,175,98,.18)}
+.qty output{min-width:34px;text-align:center;font-weight:700;font-size:1.2rem}
+.chat{padding:16px 14px;border-radius:16px;background:#0b1a13 radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px) 0 0/14px 14px;border:1px solid rgba(255,255,255,.05)}
+.chat-bubble{position:relative;margin-left:auto;max-width:90%;padding:10px 12px 20px;border-radius:12px 3px 12px 12px;background:#d9fdd3;color:#111b21;font-size:.88rem;line-height:1.5;box-shadow:0 1px 1px rgba(0,0,0,.25)}
+.chat-bubble::after{content:"";position:absolute;top:0;right:-7px;border-width:0 0 9px 8px;border-style:solid;border-color:transparent transparent transparent #d9fdd3}
+.chat-meta{position:absolute;right:10px;bottom:4px;font-size:.66rem;color:#667781}
+.chat-meta em{font-style:normal;color:#53bdeb;letter-spacing:-.15em;margin-left:2px}
+.btn-wa{background:linear-gradient(135deg,#2fbf55,#1c9a3d);color:#fff;box-shadow:0 12px 26px -10px rgba(37,211,102,.6)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(37,211,102,.75)}
 .builder .btn{width:100%;justify-content:center;padding:17px}
+.b-note{margin-top:12px;text-align:center;font-size:.76rem;opacity:.6}
 
 /* Footer */
 footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
@@ -240,6 +260,40 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 .mnav,.mbar,.cups-hint,.hero-emblem{display:none}
 .burger span{position:absolute;left:11px;right:11px;height:1.6px;border-radius:2px;background:var(--cream);transition:transform .45s cubic-bezier(.7,0,.2,1),opacity .3s,right .45s}
 .burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px;right:19px}
+
+/* Popup de WhatsApp */
+.wa-scrim{position:fixed;inset:0;z-index:61;background:rgba(6,12,9,.45);opacity:0;transition:opacity .25s}
+.wa-scrim.open{opacity:1}
+.wa-pop{position:fixed;right:22px;bottom:100px;z-index:62;width:340px;max-width:calc(100vw - 24px);border-radius:22px;overflow:hidden;
+  background:#13241b;border:1px solid rgba(212,175,98,.28);box-shadow:0 28px 60px -18px rgba(0,0,0,.75);
+  opacity:0;transform:translateY(14px) scale(.97);transform-origin:bottom right;transition:opacity .25s,transform .3s cubic-bezier(.2,.7,.2,1)}
+.wa-pop.open{opacity:1;transform:none}
+.wa-pop-head{display:flex;align-items:center;gap:12px;padding:16px 14px 16px 16px;background:linear-gradient(135deg,#2fbf55,#1c9a3d);color:#fff}
+.wa-pop-head b{display:block;font-size:1rem;letter-spacing:.01em}
+.wa-pop-head small{display:block;font-size:.76rem;opacity:.9}
+.wa-pop-av{width:46px;height:46px;flex:none;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.wa-pop-av svg{width:46px;height:46px;overflow:visible}
+.wa-pop-x{margin-left:auto;width:36px;height:36px;border:0;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;display:grid;place-items:center;cursor:pointer}
+.wa-pop-x svg{width:18px;height:18px}
+.wa-pop-body{padding:16px 14px 14px;display:grid;gap:10px}
+.wa-bubble{justify-self:start;max-width:92%;margin-bottom:4px;padding:10px 14px;border-radius:4px 14px 14px 14px;background:#e7f7dd;color:#1d2a1a;font-size:.9rem;line-height:1.45}
+.wa-opt{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(212,175,98,.16);color:var(--cream);transition:background .2s,border-color .2s}
+.wa-opt:hover,.wa-opt:focus-visible{background:rgba(212,175,98,.1);border-color:rgba(212,175,98,.45);outline:none}
+.wa-opt b{display:block;font-size:.93rem}
+.wa-opt small{display:block;font-size:.74rem;opacity:.65}
+.wa-opt-i{width:38px;height:38px;flex:none;border-radius:11px;display:grid;place-items:center;background:rgba(212,175,98,.14);color:var(--gold-2)}
+.wa-opt-i svg{width:20px;height:20px}
+.wa-opt-i.wa-g{background:rgba(37,211,102,.14);color:#3fd46f}
+.wa-opt-chev{width:18px;height:18px;margin-left:auto;color:var(--gold);opacity:.7;flex:none}
+.wa-opt-main{background:linear-gradient(135deg,var(--gold-2),var(--gold));border-color:transparent;color:var(--espresso)}
+.wa-opt-main:hover,.wa-opt-main:focus-visible{background:linear-gradient(135deg,#f1dca3,#d9b66b)}
+.wa-opt-main small{opacity:.75}
+.wa-opt-main .wa-opt-i{background:rgba(12,23,18,.12);color:var(--espresso)}
+.wa-opt-main .wa-opt-chev{color:var(--espresso)}
+@media (min-width:961px){.wa-scrim{display:none}}
+@media (max-width:960px){
+  .wa-pop{left:12px;right:12px;width:auto;max-width:none;bottom:calc(84px + env(safe-area-inset-bottom));transform-origin:bottom center}
+}
 
 /* Revelado al hacer scroll */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -370,10 +424,9 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
   /* Pedido */
   .order-bag{display:none}
-  .builder{padding:24px 18px;border-radius:20px}
-  .builder .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-  .builder .opt span{width:100%;justify-content:center;text-align:center;padding:12px 6px;font-size:.8rem;line-height:1.25;min-height:48px}
-  .field:first-child .opts{grid-template-columns:1fr}
+  .builder{padding:20px 16px;border-radius:20px}
+  .grind{gap:8px}
+  .g-opt span{padding:14px 4px 12px}
 
   /* Pie */
   footer{padding:56px 0 calc(110px + env(safe-area-inset-bottom))}
@@ -415,7 +468,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 }
 @media (max-width:380px){
   .hero-badges div{font-size:.7rem;padding:9px 10px}
-  .builder .opt span{font-size:.74rem}
+  .g-opt small{display:none}
   .pillars{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
@@ -716,30 +769,43 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
     </div>
 
     <form class="builder reveal d2" id="builder">
-      <div class="field">
-        <p>Presentación</p>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="size" value="500 g" checked><span>Bolsa de 500 g</span></label>
-        </div>
+      <div class="b-product">
+        <picture><source type="image/avif" srcset="assets/img/bolsa-frente-360.avif"><img src="assets/img/bolsa-frente-360.webp" alt="" width="360" height="673" loading="lazy" decoding="async"></picture>
+        <div><small>Tu bolsa</small><b>Café Origen · 500 g</b><span>San Mateo Piñas · Tostado artesanal</span></div>
+        <input type="hidden" name="size" value="500 g">
       </div>
-      <div class="field">
-        <p>Molienda</p>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="grind" value="tostado en grano"><span>Tostado en grano</span></label>
-          <label class="opt"><input type="radio" name="grind" value="molido para cafetera" checked><span>Para cafetera</span></label>
-          <label class="opt"><input type="radio" name="grind" value="molido para olla"><span>Para olla</span></label>
+
+      <fieldset class="b-step">
+        <legend class="b-legend"><i>1</i>Elige tu molienda</legend>
+        <div class="grind">
+          <label class="g-opt"><input type="radio" name="grind" value="tostado en grano"><span>
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="16" cy="16" rx="8" ry="11.5" transform="rotate(28 16 16)"/><path d="M12.5 6.5c5 4-1.5 11 4.5 19"/></svg>
+            <b>En grano</b><small>Para moler en casa</small></span></label>
+          <label class="g-opt"><input type="radio" name="grind" value="molido para cafetera" checked><span>
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h17v5H7zM8 9v19h17"/><path d="M12 11h9l-1.5 3h-6z"/><path d="M12.5 17h8.5l-1 8h-6.5z"/></svg>
+            <b>Cafetera</b><small>Molienda media</small></span></label>
+          <label class="g-opt"><input type="radio" name="grind" value="molido para olla"><span>
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12c-1.5 10 4 15 10 15s11.5-5 10-15z"/><path d="M4.5 12h23M6 14.5c-2.5.6-2.5 3.4 0 4M26 14.5c2.5.6 2.5 3.4 0 4M12 8c-1-1.6 1-2.6 0-4.2M16 8c-1-1.6 1-2.6 0-4.2M20 8c-1-1.6 1-2.6 0-4.2"/></svg>
+            <b>Olla</b><small>Molienda gruesa</small></span></label>
         </div>
-      </div>
-      <div class="field">
-        <p>Cantidad de bolsas</p>
-        <div class="qty">
+      </fieldset>
+
+      <div class="b-step b-qty">
+        <span class="b-legend" id="qtyLabel"><i>2</i>¿Cuántas bolsas?</span>
+        <div class="qty" role="group" aria-labelledby="qtyLabel">
           <button type="button" id="minus" aria-label="Quitar una bolsa">−</button>
           <output id="qty" aria-live="polite">1</output>
           <button type="button" id="plus" aria-label="Agregar una bolsa">+</button>
         </div>
       </div>
-      <div class="preview" aria-live="polite"><small>Tu mensaje</small><span id="msg"></span></div>
-      <button type="submit" class="btn btn-gold"><svg><use href="#wa"/></svg>Enviar pedido por WhatsApp</button>
+
+      <div class="b-step">
+        <span class="b-legend"><i>3</i>Así llegará tu mensaje</span>
+        <div class="chat"><div class="chat-bubble" aria-live="polite"><span id="msg"></span><span class="chat-meta" aria-hidden="true">ahora <em>✓✓</em></span></div></div>
+      </div>
+
+      <button type="submit" class="btn btn-wa"><svg><use href="#wa"/></svg>Enviar pedido por WhatsApp</button>
+      <p class="b-note">Te confirmamos precio, envío y forma de pago por WhatsApp.</p>
     </form>
   </div>
 </section>
@@ -771,10 +837,26 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
 <div class="mbar" id="mbar">
   <a href="#pedido" class="btn btn-gold">Arma tu pedido</a>
-  <a class="mbar-wa" href="https://wa.me/525537053034?text=Hola%2C%20me%20interesa%20el%20caf%C3%A9%20Origen" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="wa-face" viewBox="-42 -42 184 184" aria-hidden="true"><use class="wa-acc-back" href=""/><use href="#wa-head"/><use class="wa-feat" href="#wa-feat"/><use class="wa-acc" href=""/></svg></a>
+  <a class="mbar-wa" aria-haspopup="dialog" aria-expanded="false" aria-controls="waPop" href="https://wa.me/525537053034?text=Hola%2C%20me%20interesa%20el%20caf%C3%A9%20Origen" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="wa-face" viewBox="-42 -42 184 184" aria-hidden="true"><use class="wa-acc-back" href=""/><use href="#wa-head"/><use class="wa-feat" href="#wa-feat"/><use class="wa-acc" href=""/></svg></a>
 </div>
 
-<a class="wa-float" href="https://wa.me/525537053034?text=Hola%2C%20me%20interesa%20el%20caf%C3%A9%20Origen" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="wa-face" viewBox="-42 -42 184 184" aria-hidden="true"><use class="wa-acc-back" href=""/><use href="#wa-head"/><use class="wa-feat" href="#wa-feat"/><use class="wa-acc" href=""/></svg></a>
+<a class="wa-float" aria-haspopup="dialog" aria-expanded="false" aria-controls="waPop" href="https://wa.me/525537053034?text=Hola%2C%20me%20interesa%20el%20caf%C3%A9%20Origen" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="wa-face" viewBox="-42 -42 184 184" aria-hidden="true"><use class="wa-acc-back" href=""/><use href="#wa-head"/><use class="wa-feat" href="#wa-feat"/><use class="wa-acc" href=""/></svg></a>
+
+<div class="wa-scrim" id="waScrim" hidden></div>
+<div class="wa-pop" id="waPop" role="dialog" aria-modal="true" aria-labelledby="waPopTitle" hidden>
+  <div class="wa-pop-head">
+    <span class="wa-pop-av"><svg class="wa-face" viewBox="-42 -42 184 184" aria-hidden="true"><use class="wa-acc-back" href=""/><use href="#wa-head"/><use class="wa-feat" href="#wa-feat"/><use class="wa-acc" href=""/></svg></span>
+    <div><b id="waPopTitle">Café Origen</b><small>Te atendemos por WhatsApp</small></div>
+    <button type="button" class="wa-pop-x" id="waPopX" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="wa-pop-body">
+    <p class="wa-bubble"><span id="waGreet">¡Hola!</span> ☕ ¿Cómo te ayudamos?</p>
+    <a class="wa-opt wa-opt-main" href="#pedido" data-close><span class="wa-opt-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></span><span><b>Arma tu pedido</b><small>Elige molienda y cantidad</small></span><svg class="wa-opt-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a class="wa-opt" href="https://wa.me/525537053034?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20el%20caf%C3%A9%20Origen%20%E2%98%95" target="_blank" rel="noopener" data-close><span class="wa-opt-i wa-g"><svg aria-hidden="true"><use href="#wa"/></svg></span><span><b>Tengo una pregunta</b><small>Abre WhatsApp</small></span><svg class="wa-opt-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+    <a class="wa-opt" href="https://wa.me/525537053034?text=Hola%2C%20%C2%BFme%20compartes%20precios%20y%20opciones%20de%20env%C3%ADo%20del%20caf%C3%A9%20Origen%3F" target="_blank" rel="noopener" data-close><span class="wa-opt-i wa-g"><svg aria-hidden="true"><use href="#wa"/></svg></span><span><b>Precios y envíos</b><small>Abre WhatsApp</small></span><svg class="wa-opt-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+  </div>
+</div>
+
 
 <script>
 (() => {
@@ -800,8 +882,42 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
     if (document.getElementById('acc-' + season + '-back')) svg.querySelector('.wa-acc-back').setAttribute('href', '#acc-' + season + '-back');
     if (season === 'muertos') svg.querySelector('.wa-feat').style.display = 'none';
     const link = svg.closest('a');
-    link.title = greeting + ' Escríbenos por WhatsApp';
-    link.setAttribute('aria-label', greeting + ' Escríbenos por WhatsApp');
+    if (link) {
+      link.title = greeting + ' Escríbenos por WhatsApp';
+      link.setAttribute('aria-label', greeting + ' Escríbenos por WhatsApp');
+    }
+  });
+
+  // Popup de WhatsApp: en lugar de abrir WhatsApp directo, ofrece armar el pedido o escribir
+  const waPop = document.getElementById('waPop'), waScrim = document.getElementById('waScrim');
+  const waTriggers = [...document.querySelectorAll('.wa-float, .mbar-wa')];
+  document.getElementById('waGreet').textContent = greeting;
+  let waTrigger = null;
+  const openWa = btn => {
+    waTrigger = btn;
+    waPop.hidden = waScrim.hidden = false;
+    void waPop.offsetWidth;
+    waPop.classList.add('open'); waScrim.classList.add('open');
+    waTriggers.forEach(t => t.setAttribute('aria-expanded', 'true'));
+    waPop.querySelector('.wa-opt').focus({ preventScroll: true });
+  };
+  const closeWa = (restoreFocus) => {
+    if (!waPop.classList.contains('open')) return;
+    waPop.classList.remove('open'); waScrim.classList.remove('open');
+    waTriggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
+    setTimeout(() => { if (!waPop.classList.contains('open')) waPop.hidden = waScrim.hidden = true; }, 260);
+    if (restoreFocus && waTrigger) waTrigger.focus({ preventScroll: true });
+  };
+  waTriggers.forEach(t => t.addEventListener('click', e => {
+    e.preventDefault();
+    waPop.classList.contains('open') ? closeWa(false) : openWa(t);
+  }));
+  document.getElementById('waPopX').addEventListener('click', () => closeWa(true));
+  waScrim.addEventListener('click', () => closeWa(false));
+  waPop.querySelectorAll('[data-close]').forEach(a => a.addEventListener('click', () => closeWa(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeWa(true); });
+  document.addEventListener('click', e => {
+    if (waPop.classList.contains('open') && !waPop.contains(e.target) && !waTriggers.some(t => t.contains(e.target))) closeWa(false);
   });
 
   // Nav al hacer scroll + menú móvil
