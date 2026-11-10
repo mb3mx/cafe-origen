@@ -31,13 +31,13 @@ Solo incluye lo que usa la página: las fuentes de diseño y la etiqueta para im
 
 ```bash
 # Construir (el servidor es linux/amd64)
-docker build --platform linux/amd64 --build-arg VERSION=1.0.0 \
-  -t ghcr.io/mb3mx/cafe-origen:1.0.0 -t ghcr.io/mb3mx/cafe-origen:latest .
+docker build --platform linux/amd64 --build-arg VERSION=1.1.0 \
+  -t ghcr.io/mb3mx/cafe-origen:1.1.0 -t ghcr.io/mb3mx/cafe-origen:latest .
 
 # Publicar
-docker push ghcr.io/mb3mx/cafe-origen:1.0.0
+docker push ghcr.io/mb3mx/cafe-origen:1.1.0
 docker push ghcr.io/mb3mx/cafe-origen:latest
 
 # Ejecutar
-docker run -d --name cafe-origen --restart unless-stopped -p 80:80 ghcr.io/mb3mx/cafe-origen:1.0.0
+docker run -d --name cafe-origen --restart unless-stopped -p 80:80 ghcr.io/mb3mx/cafe-origen:1.1.0
 ```

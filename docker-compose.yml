@@ -1,6 +1,6 @@
 services:
   cafeorigen:
-    image: ghcr.io/mb3mx/cafe-origen:1.0.0
+    image: ghcr.io/mb3mx/cafe-origen:1.1.0
     container_name: cafeorigen
     restart: always
     networks:
