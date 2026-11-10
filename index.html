@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TQZ62WFF');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Analytics 4 (directo; no agregar otra etiqueta de GA4 en GTM para no duplicar) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ8ZZNKB1T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ8ZZNKB1T');</script>
 <title>Origen · Café 100% de origen oaxaqueño</title>
 <meta name="description" content="Café Origen: café 100% oaxaqueño de San Mateo Piñas, cultivado a más de 1,600 m bajo sombra natural, seleccionado a mano y tostado en pequeños lotes. Notas de miel, nueces y canela.">
 <meta name="theme-color" content="#0c1712">
@@ -652,6 +658,9 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQZ62WFF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- Icono de WhatsApp reutilizable -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1102,6 +1111,17 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
 
 
 <script>
+  // Analítica: eventos directos a GA4 (G-EZ8ZZNKB1T) con gtag
+  const track = (event, params = {}) => { try { gtag('event', event, params); } catch (e) {} };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href*="wa.me"]');
+    if (a && !a.hasAttribute('aria-controls')) {
+      const where = a.closest('.wa-pop') ? 'ayuda' : a.closest('footer') ? 'pie' : a.closest('.mnav') ? 'menu_movil' : 'pagina';
+      track('click_whatsapp', { ubicacion: where, texto: (a.querySelector('b') || a).textContent.trim().slice(0, 60) });
+    }
+    if (e.target.closest('#cookOpen')) track('modo_cocina');
+  });
+
 (() => {
   const WA = '525537053034';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1148,6 +1168,10 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
       document.getElementById('calcCdas').textContent = `Aproximadamente ${cdas} ${cdas === 1 ? 'cucharada sopera rasa' : 'cucharadas soperas rasas'}`;
       document.getElementById('calcCups').textContent = `${cups === 1 ? 'Para 1 taza' : `Para unas ${cups} tazas`} de ${r.cup} ml${m === 'olla' ? ' (jarrito)' : ''}`;
     };
+    let calcUsed = false;
+    const calcTrack = () => { if (!calcUsed) { calcUsed = true; track('uso_calculadora'); } };
+    water.addEventListener('change', calcTrack);
+    document.querySelectorAll('input[name="calcInt"]').forEach(i => i.addEventListener('change', calcTrack));
     water.addEventListener('input', calc);
     document.querySelectorAll('input[name="calcInt"]').forEach(i => i.addEventListener('change', calc));
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', calc));
@@ -1298,6 +1322,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   let waTrigger = null;
   const openWa = btn => {
     waTrigger = btn;
+    track('abrir_ayuda_whatsapp');
     waPop.hidden = waScrim.hidden = false;
     void waPop.offsetWidth;
     waPop.classList.add('open'); waScrim.classList.add('open');
@@ -1426,6 +1451,7 @@ footer{padding:70px 0 40px;border-top:1px solid rgba(201,163,90,.18)}
   form.addEventListener('change', render);
   form.addEventListener('submit', e => {
     e.preventDefault();
+    track('pedido_whatsapp', { cantidad: qty, molienda: form.grind.value, value: qty * PRICE, currency: 'MXN' });
     window.open(`https://wa.me/${WA}?text=${encodeURIComponent(message())}`, '_blank', 'noopener');
   });
   // Limpia la tarjeta de sellos que guardaban versiones anteriores del sitio
